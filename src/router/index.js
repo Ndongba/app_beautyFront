@@ -4,6 +4,9 @@ import Header from '@/components/commun/Header.vue'
 import Footer from '@/components/commun/Footer.vue'
 import Client from '@/views/Home/Client.vue'
 import Professionnel from '@/views/Home/Professionnel.vue'
+import AcceuilPro from '@/views/Professionnel/AcceuilPro.vue'
+
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,6 +37,16 @@ const router = createRouter({
       name: 'Professionnel',
       component: Professionnel
     },
+    // {
+    //   path: '/Dashboardprofessionnel',
+    //   name:'DashboardProfesionnel',
+    //   component: DashboardProfessionnel
+    // },
+    {
+      path:'/Professionnel/Acceuil',
+      name:'AcceuilProfessionnel',
+      component: AcceuilPro
+    }
 
       
    
