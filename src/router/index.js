@@ -7,6 +7,7 @@ import Professionnel from '@/views/Home/Professionnel.vue'
 import AcceuilPro from '@/views/Professionnel/AcceuilPro.vue'
 import ReservationPro from '@/views/Professionnel/ReservationPro.vue'
 import ClientPro from '@/views/Professionnel/ClientPro.vue'
+import PrestationPro from '@/views/Professionnel/PrestationPro.vue'
 
 
 
@@ -55,6 +56,11 @@ const router = createRouter({
       name:'ClientPro',
       component: ClientPro
     },
+    {
+      path: '/Professionnel/Prestation',
+      name:'PrestationPro',
+      component: PrestationPro
+    }
 
       
    
