@@ -10,6 +10,7 @@ import ClientPro from '@/views/Professionnel/ClientPro.vue'
 import PrestationPro from '@/views/Professionnel/PrestationPro.vue'
 import FormulairePro from '@/views/Professionnel/FormulairePro.vue'
 import FormulaireProupdate from '@/views/Professionnel/FormulaireProupdate.vue'
+import InscriptionPro from '@/views/Professionnel/InscriptionPro.vue'
 
 
 
@@ -73,6 +74,11 @@ const router = createRouter({
     name:'ProfessionnelProupdate',
     component: FormulaireProupdate
    },
+   {
+    path:'/Professionnel/Inscription',
+    name:'InscriptionPro',
+    component: InscriptionPro
+   }
    
       
    
