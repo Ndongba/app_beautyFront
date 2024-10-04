@@ -18,7 +18,7 @@
                 </li>
 
                 <li>
-                    <a href="/Professionnel/Acceuil">
+                    <a href="/Professionnel/Rendez-vous">
                         <span class="icon">
                             <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/ph_calendar.svg" alt="">
                         </span>
@@ -27,7 +27,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="/Professionnel/Client">
                         <span class="icon">
                             <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/Vector.svg" alt="">
                         </span>

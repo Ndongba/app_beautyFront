@@ -6,6 +6,7 @@ import Client from '@/views/Home/Client.vue'
 import Professionnel from '@/views/Home/Professionnel.vue'
 import AcceuilPro from '@/views/Professionnel/AcceuilPro.vue'
 import ReservationPro from '@/views/Professionnel/ReservationPro.vue'
+import ClientPro from '@/views/Professionnel/ClientPro.vue'
 
 
 
@@ -48,6 +49,11 @@ const router = createRouter({
       path:'/Professionnel/Rendez-vous',
       name:'ReservationProfessionnel',
       component: ReservationPro
+    },
+    {
+      path:'/Professionnel/Client',
+      name:'ClientPro',
+      component: ClientPro
     },
 
       
