@@ -5,6 +5,7 @@ import Footer from '@/components/commun/Footer.vue'
 import Client from '@/views/Home/Client.vue'
 import Professionnel from '@/views/Home/Professionnel.vue'
 import AcceuilPro from '@/views/Professionnel/AcceuilPro.vue'
+import ReservationPro from '@/views/Professionnel/ReservationPro.vue'
 
 
 
@@ -37,16 +38,17 @@ const router = createRouter({
       name: 'Professionnel',
       component: Professionnel
     },
-    // {
-    //   path: '/Dashboardprofessionnel',
-    //   name:'DashboardProfesionnel',
-    //   component: DashboardProfessionnel
-    // },
+   
     {
       path:'/Professionnel/Acceuil',
       name:'AcceuilProfessionnel',
       component: AcceuilPro
-    }
+    },
+    {
+      path:'/Professionnel/Rendez-vous',
+      name:'ReservationProfessionnel',
+      component: ReservationPro
+    },
 
       
    
