@@ -28,14 +28,16 @@
     <div>
         <table class="table">
             <thead>
-                <th>N°</th>
-                <th>Client</th>
-                <th>Date Creation</th>
-                <th>Date Prévue</th>
-                <th>Durée</th>
-                <th>Prix</th>
-                <th>Statut</th>
-                <th>Actions</th>
+                <tr>
+                    <th>N°</th>
+                    <th>Client</th>
+                    <th>Date Creation</th>
+                    <th>Date Prévue</th>
+                    <th>Durée</th>
+                    <th>Prix</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                </tr>
             </thead>
             <tbody>
                 <tr>

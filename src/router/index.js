@@ -8,6 +8,7 @@ import AcceuilPro from '@/views/Professionnel/AcceuilPro.vue'
 import ReservationPro from '@/views/Professionnel/ReservationPro.vue'
 import ClientPro from '@/views/Professionnel/ClientPro.vue'
 import PrestationPro from '@/views/Professionnel/PrestationPro.vue'
+import FormulairePro from '@/views/Professionnel/FormulairePro.vue'
 
 
 
@@ -60,8 +61,13 @@ const router = createRouter({
       path: '/Professionnel/Prestation',
       name:'PrestationPro',
       component: PrestationPro
-    }
-
+    },
+   {
+    path:'/Professionnel/Formulaire',
+    name:'ProfessionnelPro',
+    component: FormulairePro
+   }
+   
       
    
   ]

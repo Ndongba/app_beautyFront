@@ -35,14 +35,15 @@
         <table class="table">
             
             <thead>
-                
-                <th>N°</th>
-                <th>Noms</th>
-                <th>Email</th>
-                <th>Telephone</th>
-                <th>Nbre de Rendez-vous</th>
-                <th>Dernier RV</th>
-                <th>Actions</th>
+                <tr>
+                    <th>N°</th>
+                    <th>Noms</th>
+                    <th>Email</th>
+                    <th>Telephone</th>
+                    <th>Nbre de Rendez-vous</th>
+                    <th>Dernier RV</th>
+                    <th>Actions</th>
+                </tr>
             </thead>
             <tbody>
                 <tr>

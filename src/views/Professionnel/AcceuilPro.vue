@@ -18,9 +18,11 @@
           <h2>Ventes Recentes</h2>
           <table>
               <thead>
-                <th>Produit</th>
-                <th>Ce mois-ci</th>
-                <th>Le mois dernier</th>
+                <tr>
+                  <th>Produit</th>
+                  <th>Ce mois-ci</th>
+                  <th>Le mois dernier</th>
+                </tr>
               </thead>
               <tbody>
                 <tr>
@@ -80,9 +82,11 @@
           <div>
             <table>
               <thead>
+                <tr>
                 <th>Prestation</th>
                 <th>Ce mois-ci</th>
                 <th>Le mois dernier</th>
+              </tr>
               </thead>
               <tbody>
                 <tr>
