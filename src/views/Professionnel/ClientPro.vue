@@ -24,6 +24,12 @@
         <div>
             <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/filter 1.svg">
         </div>
+        <div>
+            <button>Options</button>
+        </div>
+        <div>
+            <button>Ajouter un client</button>
+        </div>
     </div>
     <div>
         <table class="table">
