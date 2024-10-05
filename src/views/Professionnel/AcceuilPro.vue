@@ -49,7 +49,7 @@
             </table>
 
         </div>
-        <div class="rendez">
+        <div class="rendez" >
           <h2>Rendez-Vous À Venir</h2>
           <div>
             <div class="ligne1">
@@ -150,6 +150,8 @@
 
 <script>
 import DashboardProfessionnel from "../../components/professionnel/DashboardProfessionnel.vue";
+
+
 
 export default {
   name: "AccueilPro",
