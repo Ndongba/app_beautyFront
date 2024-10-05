@@ -1,93 +1,14 @@
 <template>
 <main>
-  <div class="form-container mt-4">
-            <form>
-                <!-- Étape 1 : Page inscription -->
-                <div class="form" v-if="currentStep === 1">
-                  <div>
-                        <button type="button" class="btn btn-secondary" @click="previousStep">Précédent</button>
-                        <button type="submit" class="btn btn-submit">Enregistrer</button>
-                    </div>
-  <div class="form1">
-    <h1 id="titre">Pour les professionnels</h1>
-      <p id="paragraphe">Créez un compte ou connectez-vous pour gérer votre entreprise.</p>
-  <div class="block1">
-  <div class="class">
-    <input type="email" name="email" id="email" placeholder="Saisir votre email">
-  </div>
-  <div class="class">
-    <button id="continuer">Continuer</button>
-  </div>
-  </div>
-  <div class="block2">
-    <div>
-      <button id="buton">Continuer avec Google</button>
-    </div>
-    <div>
-      <button id="buton">Continuer avec Facebook</button>
-    </div>
-    <div>
-      <button id="buton">Continuer avec Apple</button>
-    </div>
-  </div>
-  </div>
-      </div>
-</form>
-  
-  <div class="imagepro">
-    <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/proprietaire-salon-coiffure-latino-se-preparant-pour-clients_23-2150286080.svg" id="imagepro1">
-  </div>
-</div>
-
-                <!-- Étape 2 : Informations de l'entreprise -->
-
-                <form action="" class="etape2" v-if="currentStep === 2">
-                  <h1>Configuration du Compte Professionnel</h1>
-                  <h1>Comment s'appele votre entreprise </h1>
-                  <h2>Ceci est le nom que vos clients verront</h2>
-
-                  <div class="input1">
-                    <div>
-                    <label for="">Nom de l'entreprise</label>
-                  </div>
-                    <input type="text" id="input">
-                  </div>
-                  <div class="input2">
-                    <div>
-                    <label for="">Adresse de l'entreprise</label>
-                  </div>
-                    <input type="url" name="" id="input">
-                  </div>
-                  <div class="input3">
-                    <div>
-                    <label for="">Telephone</label>
-                  </div>
-                    <input type="tel" name="" id="input">
-                  </div>
-                  <div class="input4">
-                    <div>
-                    <label for="">Registre de Commerce</label>
-                    </div>
-                    <input type="file" id="input">
-                  </div>
-                  <div class="input5">
-                    <div>
-                    <label for="">Ninea</label>
-                  </div>
-                    <input type="file" id="input">
-                  </div>
-
-
-                </form>
-                
-                <!-- Étape 3 : Choix des prestations -->
-                <div class="principal" v-if="currentStep === 3">
-        
-         
-                    <div>
-                        <button type="button" class="btn btn-secondary" @click="previousStep">Précédent</button>
-                        <button type="submit" class="btn btn-submit">Enregistrer</button>
-                    </div>
+    <div class="principal">
+        <div class="buton">
+            <div>
+                <button id="bouton">Annuler</button>
+            </div>
+            <div>
+                <button id="bouton">Continuer</button>
+            </div>
+        </div>
         <h2 id="h2">Configuration du Compte</h2>
         <h1 class="titre">Quelles prestations proposées-vous ?</h1>
         <div class="block1">
@@ -141,107 +62,18 @@
             </div>
         </div>
     </div>
-        
 </main>
+
 </template>
-<script setup>
-
-import { ref, onMounted } from 'vue'
- 
-
-  const currentStep = ref(1);
-
-  const previousStep = () => {
-    if (currentStep.value > 1) currentStep.value--;
-};
-
-
-
+<script>
+ export default {
+    name: "ListeprestationPro",
+    components: {
+      
+    },
+}
 </script>
 <style scoped>
-.form{
-  display: flex;
-  width: 100%;
-  
-}
-
-.form1{
-  width: 50%;
-}
-
-.imagepro{
-  width: 50%;
-  height: 100%;
-}
-
-.etape2{
-  text-align: center;
-}
-.block1{
-  text-align: center;
-  margin-top: 100px;
-}
-
-#paragraphe{
-  font-size: 30px;
-  text-align: center;
-}
-
-.block2{
-  margin-top: 150px;
-  text-align: center;
-}
-
-#titre{
-  font-size: 60px;
-  text-align: center;
-}
-
-.input1{
-  margin-top: 50px;
-}
-
-.input2{
-  margin-top: 50px;
-}
-
-.input3{
-  margin-top: 50px;
-}
-
-.input4{
-  margin-top: 50px;
-}
-
-.input5{
-  margin-top: 50px;
-}
-
-
-#buton{
-  width: 500px;
-    height: 50px;
-    font-size: 30px;
-    border-radius: 10px;
-    margin-top: 30px;
-   
-}
-
-#continuer{
-  width: 500px;
-    height: 50px;
-    font-size: 30px;
-    border-radius: 10px;
-    margin-top: 20px;
-}
-
-#email{
-  width: 500px;
-    height: 50px;
-    font-size: 30px;
-    border-radius: 10px;
-    margin-top: 20px;
-}
 
 .titre{
     font-size: 50px;
@@ -268,19 +100,6 @@ import { ref, onMounted } from 'vue'
 #h2{
     text-align: center;
     color: gray;
-}
-
-#input{
-  width: 500px;
-    height: 50px;
-    font-size: 30px;
-    border-radius: 10px;
-    margin-top: 20px;
-
-}
-
-label{
-  font-size: 36px;
 }
 
 #bouton{
