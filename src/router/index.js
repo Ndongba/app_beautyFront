@@ -12,6 +12,7 @@ import FormulairePro from '@/views/Professionnel/FormulairePro.vue'
 import FormulaireProupdate from '@/views/Professionnel/FormulaireProupdate.vue'
 import InscriptionPro from '@/views/Professionnel/InscriptionPro.vue'
 import ListeprestationPro from '@/views/Professionnel/ListeprestationPro.vue'
+import InscriptionClient from '@/views/Client/InscriptionClient.vue'
 
 
 
@@ -84,6 +85,12 @@ const router = createRouter({
     path:'/Professionnel/Listeprestation',
     name:'ListeprestationPro',
     component: ListeprestationPro
+   },
+
+   {
+    path:'/Client/Inscription',
+    name:'InscriptionClient',
+    component: InscriptionClient
    }
    
       
