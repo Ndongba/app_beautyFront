@@ -1,216 +1,223 @@
 <template>
-    <div class="dashboard-layout">
-      <!-- Sidebar -->
-      <aside class="sidebar">
-        
-          <DashboardProfessionnel/>
-        
-      </aside>
-  
-      <!-- Contenu principal -->
-      
-      <main class="main-content">
-        
-        
-  <div>
- 
-    <div class="recherche">
-        <div>
-            <input type="search" name="search" id="search" placeholder="Rechercher">
-        </div>
-        <div>
-            <input type="text" id="filter" name="filter" placeholder="Filtrer">
-        </div>
-        <div>
-            <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/filter 1.svg">
-        </div>
-       
-    </div>
-    <div class="form">
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <DashboardProfessionnel />
+    </aside>
+
+    <!-- Contenu principal -->
+    <main class="main-content">
+      <div class="form">
         <h2>Modifier une Prestation</h2>
-       <div class="block1">
-        <div class="class">
+        <div class="block1">
+          <div class="class">
             <div>
-            <label for="">Nom de la prestation</label>
+              <label for="nom">Nom de la prestation</label>
             </div>
-            <input type="text" id="input" name="" placeholder="Saisir le nom de la prestation">
-        </div>
-        <div class="class">
+            <input type="text" id="nom" v-model="prestation.libelle" placeholder="Saisir le nom de la prestation">
+          </div>
+          <div class="class">
             <div>
-                <label for="">Type de Prestation</label>
+              <label for="typePrestation">Type de Prestation</label>
             </div>
-           <select name="" id="input">
-            <option value="">Type de Prestation</option>
-           </select>
-        </div>
+            <select id="typePrestation" v-model="prestation.type_prestation">
+              <option value="">Sélectionner un type</option>
+              <option value="type1">Type 1</option>
+              <option value="type2">Type 2</option>
+            </select>
+          </div>
         </div>
         <div class="blockdesc">
-            <div>
-            <label for="">Description</label>
-            </div>
-            <textarea name="" id="description" cols="30" rows="15"></textarea>
+          <div>
+            <label for="description">Description</label>
+          </div>
+          <textarea id="description" v-model="prestation.description" cols="30" rows="15"></textarea>
         </div>
         <div class="block2">
+          <div>
             <div>
-                <div>
-                    <label for="">Categorie de la prestation</label>
-                </div>
-                <select name="" id="input">
-                    <option value="">Categorie</option>
-                </select>
+              <label for="categorie">Categorie de la prestation</label>
             </div>
+            <select id="categorie" v-model="prestation.categorie_id">
+              <option value="">Sélectionner une catégorie</option>
+              <option v-for="categorie in categories" :key="categorie.id" :value="categorie.id">{{ categorie.libelle }}</option>
+            </select>
+          </div>
+          <div>
             <div>
-                <div>
-                <label for="">Durée</label>
-                </div>
-                <input type="time" name="" id="input">
+              <label for="duree">Durée</label>
             </div>
+            <input type="time" id="duree" v-model="prestation.duree">
+          </div>
         </div>
         <div class="block3">
+          <div>
             <div>
-                <div>
-                    <label for="">Type de Prix</label>
-                </div>
-                <select name="" id="input">
-                    <option value="">Type de prix</option>
-                </select>
+              <label for="typePrix">Type de Prix</label>
             </div>
+            <select id="typePrix" v-model="prestation.type_prix">
+              <option value="">Sélectionner un type de prix</option>
+              <option value="fixe">Fixe</option>
+              <option value="variable">Variable</option>
+            </select>
+          </div>
+          <div>
             <div>
-                <div>
-                <label for="">Prix</label>
-                </div>
-                <input type="number" name="" id="input">
+              <label for="prix">Prix</label>
             </div>
+            <input type="number" id="prix" v-model="prestation.prix">
+          </div>
         </div>
         <div class="bouton">
-            <div>
-                
-                <button id="bouton">Annuler</button>
-            </div>
-            <div>
-                <button id="bouton">Enregistrer</button>
-            </div>
+          <div>
+            <button id="bouton" @click="annuler">Annuler</button>
+          </div>
+          <div>
+            <button id="bouton" @click="enregistrer">Enregistrer</button>
+          </div>
         </div>
-        
-    </div>
+      </div>
+    </main>
   </div>
-        
-      </main>
-    </div>
-  </template>
-  
-  <script>
-  import DashboardProfessionnel from "../../components/professionnel/DashboardProfessionnel.vue";
-  
-  export default {
-    name: "AccueilPro",
-    components: {
-      DashboardProfessionnel
+</template>
+
+<script>
+import DashboardProfessionnel from "../../components/professionnel/DashboardProfessionnel.vue";
+import { getCategories } from "@/services/Categorie";
+import { getPrestationById, updatePrestation } from "@/services/Prestation";
+import { useRouter, useRoute } from "vue-router";
+
+export default {
+  name: "ModifierPrestation",
+  components: {
+    DashboardProfessionnel
+  },
+  data() {
+    return {
+      prestation: {
+        libelle: "",
+        description: "",
+        categorie_id: "",
+        duree: "",
+        type_prestation: "",
+        type_prix: "",
+        prix: null
+      },
+      categories: []
+    };
+  },
+  mounted() {
+    this.fetchCategories();
+    this.fetchPrestation();
+  },
+  methods: {
+    async fetchCategories() {
+      try {
+        const response = await getCategories();
+        this.categories = response.data;
+      } catch (error) {
+        console.error("Erreur lors de la récupération des catégories :", error);
+      }
     },
-  };
-  </script>
-  
-  <style scoped>
-  /* Disposition de la page */
-  .dashboard-layout {
-    display: flex; /* Utilisation de flexbox pour créer un layout à deux colonnes */
-   /* height: 100vh; /* Prend la hauteur de la fenêtre */
+    async fetchPrestation() {
+      const route = useRouter();
+      const prestation = route.params.id; // Récupérer l'ID de la prestation depuis l'URL
+      try {
+        const response = await getPrestationById(prestation);
+        this.prestation = response.data;
+      } catch (error) {
+        console.error("Erreur lors de la récupération de la prestation :", error);
+      }
+    },
+    async enregistrer() {
+      try {
+        const response = await updatePrestation(this.prestation.id, this.prestation);
+        console.log("Prestation mise à jour avec succès :", response.data);
+        this.$router.push("/Professionnel/Prestations"); // Rediriger après la mise à jour
+      } catch (error) {
+        console.error("Erreur lors de la mise à jour de la prestation :", error);
+      }
+    },
+    annuler() {
+      this.$router.push("/Professionnel/Prestations"); // Rediriger vers la liste des prestations
+    }
   }
-  
-  /* Styles de la sidebar */
-  .sidebar {
-    width: 350px;
-    background-color:#B4838D; /* Couleur de fond sombre */
-    color: #fff; /* Couleur de texte */
-    padding: 20px;
-   /* box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Ajout d'une ombre à droite de la sidebar */
-  }
-  
-  
-  
-  /* Contenu principal */
-  .main-content {
-    flex: 1; /* Prend tout l'espace restant */
-    padding: 20px;
-    background-color: #f5f5f5; /* Couleur de fond pour différencier le contenu */
-    font-size: 32px;
-  }
-  
-  #search{
-    width: 750px;
-    height: 60px;
-    border-radius: 20px;
-    font-size: 32px;
+};
+</script>
 
-  }
-  
-  #filter{
-    width: 150px;
-    height: 55px;
-    border-radius: 20px;
-    font-size: 32px;
-  }
- 
-  .recherche{
-    display: flex;
-    gap: 30px;
-    
-  }
+<style scoped>
+/* Disposition de la page */
+.dashboard-layout {
+  display: flex;
+}
 
-  #input{
-    width: 500px;
-    height: 50px;
-    border-radius: 10px;
-    font-size: 30px;
-  }
+/* Styles de la sidebar */
+.sidebar {
+  width: 350px;
+  background-color: #B4838D;
+  color: #fff;
+  padding: 20px;
+}
 
-  #bouton{
-    width: 200px;
-    height: 50px;
-    font-size: 30px;
-    border-radius: 10px;
-  }
+/* Contenu principal */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f5f5f5;
+  font-size: 32px;
+}
 
-  .blockdesc{
-margin-top: 40px;
-  }
+#search, #filter {
+  width: 150px;
+  height: 55px;
+  border-radius: 20px;
+  font-size: 32px;
+}
 
-  .form{
-   width: 1300px;
-   margin: 0 auto;
-  }
+.recherche {
+  display: flex;
+  gap: 30px;
+}
 
-  #description{
-    width: 1050px;
-    height: 300px;
-    font-size: 30px;
-    border-radius: 10px;
-   
-  }
+#input {
+  width: 500px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 30px;
+}
 
-  .block1{
-    display: flex;
-    gap: 50px;
-    margin-top: 10px;
-  }
+#bouton {
+  width: 200px;
+  height: 50px;
+  font-size: 30px;
+  border-radius: 10px;
+}
 
-  .block2{
-    display: flex;
-    gap: 50px;
-    margin-top: 40px;
-  }
+.blockdesc {
+  margin-top: 40px;
+}
 
-  .block3{
-    display: flex;
-    gap:50px;
-    margin-top: 40px;
-  }
+.form {
+  width: 1300px;
+  margin: 0 auto;
+}
 
-  .bouton{
-    display: flex;
-    gap: 20px;
-    margin-top: 40px;
-    
-  }
-  </style>
-  
+#description {
+  width: 1050px;
+  height: 300px;
+  font-size: 30px;
+  border-radius: 10px;
+}
+
+.block1, .block2, .block3 {
+  display: flex;
+  gap: 50px;
+  margin-top: 40px;
+}
+
+.bouton {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+}
+</style>

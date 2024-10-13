@@ -71,7 +71,7 @@
     components: {
       
     },
-}
+};
 </script>
 <style scoped>
 

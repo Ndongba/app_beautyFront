@@ -10,15 +10,27 @@ import ClientPro from '@/views/Professionnel/ClientPro.vue'
 import PrestationPro from '@/views/Professionnel/PrestationPro.vue'
 import FormulairePro from '@/views/Professionnel/FormulairePro.vue'
 import FormulaireProupdate from '@/views/Professionnel/FormulaireProupdate.vue'
-import InscriptionPro from '@/views/Professionnel/InscriptionPro.vue'
 import ListeprestationPro from '@/views/Professionnel/ListeprestationPro.vue'
-import InscriptionClient from '@/views/Client/InscriptionClient.vue'
+import LoginClient from '@/views/Home/Login.vue'
+import AcceuilClient from '@/views/Client/AcceuilClient.vue'
+import DetailPro from '@/views/Client/DetailPro.vue'
+import Inscription from '@/views/Home/Inscription.vue'
+import ListePrestations from '@/views/Client/ListePrestations.vue'
+import Planification from '@/views/Client/Planification.vue'
+import Rendezvous from '@/views/Client/Rendezvous.vue'
 
 
+
+// const routes = [
+//   { path: '/Acceuil/Authchoice', component: AuthChoice },
+  
+// ];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+
+    
     {
       path: '/',
       name: 'Header',
@@ -72,25 +84,56 @@ const router = createRouter({
     component: FormulairePro
    },
    {
-    path:'/Professionnel/Formulaireupdate',
+    path:'/Professionnel/Formulaireupdate/:id',
     name:'ProfessionnelProupdate',
     component: FormulaireProupdate
    },
-   {
-    path:'/Professionnel/Inscription',
-    name:'InscriptionPro',
-    component: InscriptionPro
-   },
+
    {
     path:'/Professionnel/Listeprestation',
     name:'ListeprestationPro',
     component: ListeprestationPro
    },
 
+ 
    {
-    path:'/Client/Inscription',
-    name:'InscriptionClient',
-    component: InscriptionClient
+    path:'/Home/Login',
+    name:'LoginClient',
+    component: LoginClient
+   },
+  
+   {
+    path: '/Acceuil/Client',
+    name:'AcceuilClient',
+    component: AcceuilClient
+   },
+
+   {
+    path:'/Acceuil/DetailPro',
+    name: 'DetailProfessionnl',
+    component: DetailPro
+   },
+   {
+    path:'/Home/Inscription',
+    name:'Inscription',
+    component: Inscription
+   },
+
+   {
+    path:'/Home/Client/ListePrestations',
+    name: 'ListePrestations',
+    component: ListePrestations
+   },
+   {
+    path: '/Home/Client/Planification',
+    name:'Planification',
+    component: Planification
+   },
+
+   {
+    path:'/Home/Client/Rendezvous',
+    name:'Rendezvous',
+    component: Rendezvous
    }
    
       
