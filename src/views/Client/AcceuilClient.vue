@@ -1,197 +1,125 @@
 <template>
-<main>
-    <div class="banniere" >
-        <BarreRecherche/>
-    </div>
-    <div class="class">
-        <div>
-            <h1>Rendez-Vous À Venir</h1>
-            <div class="card" style="width: 30rem;">
-                    <img src="/home/ndongba/app_beautyFront/src/assets/images/Group 118.svg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-                </div>
-            
+    <main>
+        <div class="banniere">
+            <BarreRecherche/>
         </div>
-        <div class="block1" >
-            <h1>Salons et Instituts de Beauté</h1>
-               
-                
-            </div>
-            <div class="block2">
-                <div class="block2_1">
+        <div class="container">
+            <!-- <div>
+                <h1>Rendez-Vous À Venir</h1>
                 <div class="card" style="width: 30rem;">
-                <img src="/home/ndongba/app_beautyFront/src/assets/images/Group 118.svg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            </div>
-            <div class="card" style="width: 30rem;">
-                <img src="/home/ndongba/app_beautyFront/src/assets/images/Group 118 (1).svg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            </div>
-            <div class="card" style="width: 30rem;" >
-                <img src="/home/ndongba/app_beautyFront/src/assets/images/Group 118 (2).svg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            </div>
-            </div>
-            <nav aria-label="..." class="pagination">
-                <ul class="pagination">
-                    <li class="page-item disabled">
-                    <a class="page-link">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active" aria-current="page">
-                    <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="block2_2" >
-                <div class="block2_1">
-                <div class="card" style="width: 30rem;">
-                <img src="/home/ndongba/app_beautyFront/src/assets/images/Group 118.svg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            </div>
-            <div class="card" style="width: 30rem;">
-                <img src="/home/ndongba/app_beautyFront/src/assets/images/Group 118 (4).svg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            </div>
-            <div class="card" style="width: 30rem;" >
-                <img src="/home/ndongba/app_beautyFront/src/assets/images/Group 118 (5).svg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            <nav aria-label="..." class="pagination">
-                <ul class="pagination">
-                    <li class="page-item disabled">
-                    <a class="page-link">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active" aria-current="page">
-                    <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="Avis">
+                    <img src="" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Prochain Rendez-Vous</h5>
+                        <p class="card-text">Vous avez un rendez-vous le [date] avec [professionnel].</p>
+                        <a href="#" class="btn btn-primary">Détails</a>
+                    </div>
+                </div>
+            </div> -->
 
-                <div class="card" style="width: 30rem;" >
-                <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="block1">
+                <h1>Salons et Instituts de Beauté</h1>
             </div>
+
+            <!-- Utilisation de CSS Grid pour répartir les professionnels sur toute la page -->
+            <div class="grid-professionnels">
+                <div class="card" v-for="professionnel in professionnels" :key="professionnel.role">
+                    <img src="/home/ndongba/app_beautyFront/src/assets/images/Group 118 (3).svg" class="card-img-top" :alt="professionnel.name">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ professionnel.name }}</h5>
+                        <p class="card-text">{{professionnel.description }}</p>
+                        <a v-if= "professionnel.professionnel" :href="'/professionnel/' + professionnel.professionnel.id" class="btn btn-primary">Voir Profil</a> 
+                        <!-- <a v-if="professionnel.professionnel" :href="'/professionnel/' + professionnel.professionnel.id" class="btn btn-primary">Voir Profil</a> -->
+
+                    </div>
+                </div>
             </div>
-            <div class="card" style="width: 30rem;" >
-                <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            </div>
-            <div class="card" style="width: 30rem;" >
-                <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            </div>
-            
-            </div>
-            <nav aria-label="..." class="pagination" >
-            <ul class="pagination">
-                <li class="page-item disabled">
-                <a class="page-link">Previous</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active" aria-current="page">
-                <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-                </li>
-            </ul>
-            </nav>
         </div>
-        <div>
-
- 
-
-        </div>
-        <div>
-
-        </div>
-</main>
+    </main>
 </template>
+
 <script>
 import BarreRecherche from '@/components/commun/BarreRecherche.vue';
+import { getProfessionnels } from '@/services/Professionnel'; // Importation du service
 
- export default {
+
+export default {
     name: "AcceuilClient",
     components: {
         BarreRecherche
-  }
+    },
+    data() {
+        return {
+            professionnels: [], // Liste des professionnels
+        };
+    },
+    mounted() {
+        this.getProfessionnels();
+    },
+    methods: {
+        async getProfessionnels() {
+            try {
+                const response = await getProfessionnels(); // Appel au service sans pagination
+                this.professionnels = response.data; // Si l'API renvoie directement un tableau d'utilisateurs
+            } catch (error) {
+                console.error("Erreur lors du chargement des professionnels", error);
+            }
+        }
+    }
 };
 </script>
+
 <style scoped>
-
-.block2_1{
-    display: flex;
-   gap: 150px;
-   justify-content: center;
-   margin-bottom: 60px;
-   margin-top: 60px;
+/* Container global pour centrer et contrôler la mise en page */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.Avis{
-    display: flex;
-    gap: 150px;
-    justify-content: center;
+/* Utilisation de CSS Grid pour disposer les cartes */
+.grid-professionnels {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Les cartes s'adaptent automatiquement */
+    gap: 20px;
+    margin-top: 40px;
 }
 
-.pagination{
-    justify-content: flex-end;
+/* Style des cartes */
+.card {
+    width: 100%; /* Les cartes prennent 100% de la largeur de la cellule */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
-.card{
-    width: 30rem;
+.banniere{
+    background: url("/src/assets/images/Rectangle 2.svg");
+    background-size: cover;
+    height: 400px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Assure que l'image soit bien cadrée */
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Ajustement pour les petits écrans */
+@media (max-width: 768px) {
+    .grid-professionnels {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Plus petit pour les mobiles */
+    }
 }
 </style>

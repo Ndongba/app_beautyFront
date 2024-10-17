@@ -1,39 +1,42 @@
 <template>
     <main>
+      <div>
+      <img src="/home/ndongba/app_beautyFront/src/assets/images/latino-hair-salon-owner-taking-care-client.jpg" id="proclient">
+    </div>
       <div class="form-container mt-4">
         <!-- Sélection du rôle -->
         <div class="role-selection">
-          <label for="role">Choisissez votre rôle :</label>
-          <select id="role" v-model="user.role_id" @change="handleRoleChange">
+          <label for="role" id="role">Choisissez votre rôle :</label>
+          <select id="role" v-model="user.role" @change="handleRoleChange">
             <option value="">-- Sélectionner --</option>
-            <option value= "2">Client</option>
-            <option value= "3">Professionnel</option>
+            <option value= "client">Client</option>
+            <option value= "professionnel">Professionnel</option>
           </select>
         </div>
   
         <!-- Formulaire d'inscription Client -->
-        <form v-if="user.role_id === '2'">
+        <form v-if="user.role === 'client'">
           <h1>Pour les clients</h1>
-          <p>Créez un compte ou connectez-vous pour réserver et gérer vos rendez-vous.</p>
+          <p id="para">Créez un compte ou connectez-vous pour réserver et gérer vos rendez-vous.</p>
           <div class="input-group">
             <label for="input-name">Nom</label>
-            <input type="text" placeholder="Entrer votre nom et votre Prenom" v-model="user.name" id="input-name" required>
+            <input type="text" placeholder="Entrer votre nom et votre Prenom" v-model="user.name" id="input" required>
           </div>
           <div class="input-group">
             <label for="input-address">Adresse</label>
-            <input type="text" placeholder="Entrez votre adresse" v-model="user.adresse" id="input-address" required>
+            <input type="text" placeholder="Entrez votre adresse" v-model="user.adresse" id="input" required>
           </div>
           <div class="input-group">
             <label for="input-phone">Téléphone</label>
-            <input type="number" v-model="user.telephone" id="input-phone" placeholder="Entrer votre numéro de téléphone" required>
+            <input type="number" v-model="user.telephone" id="input" placeholder="Entrer votre numéro de téléphone" required>
           </div>
           <div class="input-group">
             <label for="input-email">Email</label>
-            <input type="email" v-model="user.email" placeholder="Email" id="input-email" required>
+            <input type="email" v-model="user.email" placeholder="Email" id="input" required>
           </div>
           <div class="input-group">
             <label for="input-password">Mot de Passe</label>
-            <input type="password" v-model="user.password" id="input-password" placeholder="Entrer votre mot de passe" required>
+            <input type="password" v-model="user.password" id="input" placeholder="Entrer votre mot de passe" required>
           </div>
           <div class="navigation-buttons">
             <button type="button" class="btn btn-primary" @click="register">S'inscrire</button>
@@ -41,29 +44,37 @@
         </form>
   
         <!-- Formulaire d'inscription Professionnel avec étapes -->
-        <form v-if="user.role_id === '3'">
+        <form v-if="user.role === 'professionnel'">
           <div v-if="currentStep === 1">
             <h1>Pour les professionnels</h1>
             <p>Créez un compte ou connectez-vous pour gérer votre entreprise.</p>
             <div class="input-group">
               <label>Email</label>
-              <input type="email" v-model="user.email" placeholder="Saisir votre email" required />
+              <input type="email" v-model="user.email" placeholder="Saisir votre email" id="input" required />
             </div>
             <div class="input-group">
               <label>Mot de Passe</label>
-              <input type="password" v-model="user.password" placeholder="Saisir votre mot de passe" required />
+              <input type="password" v-model="user.password" placeholder="Saisir votre mot de passe" id="input" required />
             </div>
             <div class="input-group">
               <label>Nom de l'entreprise</label>
-              <input type="text" v-model="user.name" placeholder="Nom de l'entreprise" required />
+              <input type="text" v-model="user.name" placeholder="Nom de l'entreprise" id="input"required />
             </div>
             <div class="input-group">
+              <label for="input-address">Adresse</label>
+              <input type="text" placeholder="Entrez votre adresse" v-model="user.adresse" id="input" required>
+          </div>
+            <div class="input-group">
+            <label for="input-phone">Téléphone</label>
+            <input type="number" v-model="user.telephone" id="input" placeholder="Entrer votre numéro de téléphone" required>
+          </div>
+            <div class="input-group">
               <label>Registre de Commerce</label>
-              <input type="file" @change="handleFileUpload($event, 'registre_commerce')" required />
+              <input type="file" @change="handleFileUpload($event, 'registre_commerce')" id="input2"required />
             </div>
             <div class="input-group">
               <label>Ninea</label>
-              <input type="file" @change="handleFileUpload($event, 'ninea')" required />
+              <input type="file" @change="handleFileUpload($event, 'ninea')" id="input2" required />
             </div>
             <div class="navigation-buttons">
               <button type="button" class="btn btn-primary" @click="nextStep">Suivant</button>
@@ -99,10 +110,14 @@
                   {{ day.name }}
                 </label>
                 <div v-if="day.open" class="time-select">
+                
                   <label>Ouverture</label>
-                  <input type="time" v-model="day.openingTime" />
+                
+                  <input type="time" v-model="day.openingTime" id="datetime"/>
+                  
                   <label>Fermeture</label>
-                  <input type="time" v-model="day.closingTime" />
+                
+                  <input type="time" v-model="day.closingTime" id="datetime"/>
                 </div>
               </div>
             </div>
@@ -131,7 +146,7 @@
     telephone: '',
     email: '',
     password: '',
-    role_id: '',
+    role: '',
     registre_commerce: null,
     ninea: null,
   });
@@ -152,17 +167,17 @@
   
   // Liste des prestations
   const prestations = ref([
-    { name: 'Salon de Coiffure', image: '/path/to/image1.svg' },
-    { name: 'Salon Manucure', image: '/path/to/image2.svg' },
-    { name: 'Salon Pédicure', image: '/images/pedicure.svg' },
-    { name: 'Soins du Visage', image: '/images/soins_visage.svg' },
-    { name: 'Maquillage', image: '/images/maquillage.svg' },
-    { name: 'Soins Capillaires', image: '/images/soins_capillaires.svg' },
-    { name: 'Massage', image: '/images/massage.svg' },
-    { name: 'Spa', image: '/images/spa.svg' },
-    { name: 'Épilation', image: '/images/epilation.svg' },
-    { name: 'Barbier', image: '/images/barbier.svg' },
-    { name: 'Tatouage', image: '/images/tatouage.svg' },
+    { name: 'Salon de Coiffure', image: '/src/assets/professionnel/map_beauty-salon.svg' },
+    { name: 'Salon Manucure', image: '/src/assets/professionnel/manicure 1.svg' },
+    { name: 'Institut de Beauté', image: '/src/assets/professionnel/hair-treatment 1.svg' },
+    { name: 'Soins du Visage et de la peau', image: '/src/assets/professionnel/face-cleanser 1.svg' },
+    { name: 'Cils et Sourcils', image: '/src/assets/professionnel/eye-makeup 1.svg' },
+    { name: 'Massage', image: '/src/assets/professionnel/massage 1.svg' },
+    { name: 'Spa', image: '/src/assets/professionnel/material-symbols_spa.svg' },
+    { name: 'Épilation', image: '/src/assets/professionnel/waxing 1.svg' },
+    { name: 'Barbier', image: '/src/assets/professionnel/hugeicons_chair-barber.svg' },
+    { name: 'Tatouage', image: '/src/assets/professionnel/tatoo 1.svg' },
+
   ]);
   
   // Sélection de prestation
@@ -224,9 +239,9 @@
     formData.append('name', user.value.name);
     formData.append('telephone', user.value.telephone);
     formData.append('adresse', user.value.adresse);
-    formData.append('role_id', user.value.role_id);
+    formData.append('role', user.value.role);
 
-    if (user.value.role_id === '3') { // Si c'est un professionnel
+    if (user.value.role === 'professionnel') { // Si c'est un professionnel
       if (user.value.registre_commerce) {
         formData.append('registre_commerce', user.value.registre_commerce);
       }
@@ -250,7 +265,7 @@
   // Gérer le changement de rôle
   const handleRoleChange = () => {
     // Réinitialiser l'état à chaque changement de rôle
-    user.value = { name: '', addresse: '', telephone: '', email: '', password: '', role_id: user.value.role_id, registre_commerce: null, ninea: null };
+    user.value = { name: '', adresse: '', telephone: '', email: '', password: '', role: user.value.role, registre_commerce: null, ninea: null };
     selectedPrestations.value = [];
     currentStep.value = 1; // Remettre à l'étape 1
   };
@@ -265,7 +280,31 @@
   .input-group {
     margin-bottom: 1em;
   }
+
+  #para{
+    font-size: 28px;
+  }
   
+  .time-select{
+    display: flex;
+  }
+    #input {
+    width: 650px;
+    height: 50px;
+    font-size: 30px;
+    border-radius: 10px;
+  }
+
+  #input2{
+    font-size: 32px;
+  }
+  #datetime{
+    width: 200px;
+    font-size: 32px;
+  }
+  #role{
+    font-size: 28px;
+  }
   .prestations-list {
     display: flex;
     flex-wrap: wrap;
@@ -280,6 +319,14 @@
     cursor: pointer;
     transition: transform 0.2s;
   }
+
+  #proclient{
+    width: 700px;
+  }
+
+  label{
+    font-size: 32px;
+  }
   
   .prestation-item:hover {
     transform: scale(1.05);
@@ -289,6 +336,12 @@
     background-color: #4CAF50;
     color: white;
   }
+
+  main{
+    display: flex;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
   
   .choice-number {
     position: absolute;
@@ -296,5 +349,44 @@
     right: 10px;
     font-weight: bold;
   }
+
+  @media screen and (max-width: 420px) {
+    main{
+      display: block;
+    }
+
+    #proclient{
+      width: 350px;
+      margin-right: 10px;
+      margin-left: 0;
+      
+    }
+
+    #input{
+      width: 320px;
+      font-size: 21px;
+    }
+
+  #input2{
+    font-size: 21px;
+    width: 300px;
+  }
+
+  .time-select{
+    display: block;
+    
+  }
+  #role{
+    font-size: 24px;
+  }
+
+
+  label{
+    font-size: 24px;
+  }
+  }
+
+
+  
   </style>
   

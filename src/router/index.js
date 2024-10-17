@@ -31,18 +31,9 @@ const router = createRouter({
   routes: [
 
     
+  
     {
-      path: '/',
-      name: 'Header',
-      component: Header
-    },
-    {
-      path: '/',
-      name: 'Footer',
-      component: Footer
-    },
-    {
-      path:'/Acceuil',
+      path:'/',
       name: 'Acceuil',
       component: Acceuil
     },
@@ -94,6 +85,13 @@ const router = createRouter({
     name:'ListeprestationPro',
     component: ListeprestationPro
    },
+   {
+    path: '/professionnel/:id',
+    name: 'DetailPro',
+    component: () => import('@/views/Client/DetailPro.vue'),
+    props: true
+  },
+  
 
  
    {
@@ -108,11 +106,11 @@ const router = createRouter({
     component: AcceuilClient
    },
 
-   {
-    path:'/Acceuil/DetailPro',
-    name: 'DetailProfessionnl',
-    component: DetailPro
-   },
+  //  {
+  //   path:'/Acceuil/DetailPro',
+  //   name: 'DetailProfessionnl',
+  //   component: DetailPro
+  //  },
    {
     path:'/Home/Inscription',
     name:'Inscription',

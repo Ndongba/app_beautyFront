@@ -69,6 +69,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0;
+    margin-top: 200px;
     
   }
   
@@ -91,13 +92,28 @@
     font-size: 32px;
     border-radius: 10px;
     background-color: #FFCDB3;
+    
   }
 
   #input{
-    width: 400px;
+    width: 300px;
     height: 70px;
     font-size: 32px;
     
+  }
+
+  @media screen and (max-width: 420px){
+    #input{
+      margin-top: 5px;
+    }
+
+    button{
+      margin-top: 20px;
+      width: 125px;
+      font-size: 21px;
+      height: 40px;
+      padding-top: none;
+    }
   }
   </style>
   

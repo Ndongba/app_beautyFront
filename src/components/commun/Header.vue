@@ -1,14 +1,20 @@
 <template>
-    <header>
-      <nav>
-        <h1>Bienvenue sur notre site</h1>
+    <header class="topbar">
+      <img src="/home/ndongba/app_beautyFront/src/assets/images/Black Yellow Illustration Beauty and Spa  Logo 1.svg">
+      <nav class="menu">
+        
         <ul>
           <li><a href="#">Accueil</a></li>
           <li><a href="#">Prestations</a></li>
           <li><a href="#">Boutique</a></li>
           <li><a href="#">Contact</a></li>
+         
         </ul>
+        <div>
+          <a href="/Home/Inscription">
         <button>Connexion</button>
+      </a>
+      </div>
       </nav>
     </header>
   </template>
@@ -39,6 +45,21 @@
   nav ul li a {
     color: #fff;
     text-decoration: none;
+  }
+
+  .topbar{
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    color: #fff;
+  }
+
+  .menu{
+    display: flex;
+    gap: 50px;
+    margin-right: 50px;
+    margin-top: 20px;
+    
   }
   </style>
   
