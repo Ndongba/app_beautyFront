@@ -25,6 +25,16 @@ export const getReservationById = (id) => {
   });
 };
 
+// Fonction pour récupérer les réservations d'un client
+export const getClientReservations = () => {
+  return axios.get(`${apiUrl}reservations/client`, {
+    headers: {
+      'Authorization': `Bearer ${getAccessToken()}`,
+    },
+  });
+};
+
+
 // Fonction pour ajouter une nouvelle prestation
 export const addReservation = (reservation) => {
   return axios.post(`${apiUrl}reservations`, reservation, {

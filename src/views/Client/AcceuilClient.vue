@@ -1,22 +1,15 @@
 <template>
+    <HeaderConnect/>
     <main>
         <div class="banniere">
-            <BarreRecherche/>
+            <h1>Prenez soin de vous en toute simplicité.<br/>
+                Réservez, gérez vos rendez-vous,
+                et<br/> découvrez les meilleurs professionnels
+                de <br/>beauté près de chez vous.</h1>
         </div>
         <div class="container">
-            <!-- <div>
-                <h1>Rendez-Vous À Venir</h1>
-                <div class="card" style="width: 30rem;">
-                    <img src="" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Prochain Rendez-Vous</h5>
-                        <p class="card-text">Vous avez un rendez-vous le [date] avec [professionnel].</p>
-                        <a href="#" class="btn btn-primary">Détails</a>
-                    </div>
-                </div>
-            </div> -->
-
-            <div class="block1">
+            
+        <div class="block1">
                 <h1>Salons et Instituts de Beauté</h1>
             </div>
 
@@ -28,24 +21,32 @@
                         <h5 class="card-title">{{ professionnel.name }}</h5>
                         <p class="card-text">{{professionnel.description }}</p>
                         <a v-if= "professionnel.professionnel" :href="'/professionnel/' + professionnel.professionnel.id" class="btn btn-primary">Voir Profil</a> 
-                        <!-- <a v-if="professionnel.professionnel" :href="'/professionnel/' + professionnel.professionnel.id" class="btn btn-primary">Voir Profil</a> -->
+                        
 
                     </div>
                 </div>
             </div>
+            
         </div>
+        <Footer/>
     </main>
+    
 </template>
 
 <script>
 import BarreRecherche from '@/components/commun/BarreRecherche.vue';
+import Footer from '@/components/commun/Footer.vue';
+import HeaderConnect from '@/components/commun/HeaderConnect.vue';
 import { getProfessionnels } from '@/services/Professionnel'; // Importation du service
 
 
 export default {
     name: "AcceuilClient",
     components: {
-        BarreRecherche
+        BarreRecherche,
+        Footer,
+        HeaderConnect
+
     },
     data() {
         return {
@@ -93,7 +94,7 @@ export default {
 .banniere{
     background: url("/src/assets/images/Rectangle 2.svg");
     background-size: cover;
-    height: 400px;
+    height: 300px;
 }
 
 .card-img-top {
@@ -114,6 +115,19 @@ export default {
 .card-text {
     font-size: 1rem;
     margin-bottom: 20px;
+}
+
+.block1{
+    margin-top: 30px;
+}
+
+.grid-professionnels {
+    margin-bottom: 200px;
+}
+
+h1{
+    text-align: center;
+   padding-top: 50px;
 }
 
 /* Ajustement pour les petits écrans */

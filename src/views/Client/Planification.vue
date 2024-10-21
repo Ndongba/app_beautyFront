@@ -1,4 +1,5 @@
 <template>
+  <HeaderConnect/>
     <main>
       <h1>Choisir la date et l'heure du Rendez-Vous</h1>
   
@@ -49,18 +50,22 @@
   import { addReservation } from '@/services/Reservation';
   import { getUserProfile } from '@/services/AuthService';
   import proprestationService from '@/services/Proprestation'; // Ajout du service
+import HeaderConnect from '@/components/commun/HeaderConnect.vue';
 
   export default {
     name: "Planification",
+    components: {
+      HeaderConnect
+    },
     data() {
       return {
         selectedDate: null,
         selectedHour: null,
-        heures: ["09:00", "09:30", "10:00"],
+        heures: ["09:00", "09:30", "10:00","10:30","11:00","11h30","12h00","12h30","13h00","13h30","14h00","15h00","15h30","16h00","16h30","17h00","17h30"],
         selectedPrestations: [],
         total: 0,
         client_id: null,
-        proprestationId : 1, // Ajouter la propriété pour stocker proprestation_id
+        proprestationId: 1 , // Ajouter la propriété pour stocker proprestation_id
       };
     },
     async mounted() {

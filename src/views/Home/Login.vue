@@ -21,6 +21,9 @@
           <div>
             <button id="button" @click="performLogin">Se Connecter</button>
           </div>
+          <p>Vous n'avez-pas de compte 
+            <a href="/Home/Inscription">S'inscrire</a>
+          </p>
         </div>
       </div>
     </main>

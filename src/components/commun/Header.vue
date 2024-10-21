@@ -1,22 +1,35 @@
 <template>
-    <header class="topbar">
-      <img src="/home/ndongba/app_beautyFront/src/assets/images/Black Yellow Illustration Beauty and Spa  Logo 1.svg">
-      <nav class="menu">
-        
-        <ul>
-          <li><a href="#">Accueil</a></li>
-          <li><a href="#">Prestations</a></li>
-          <li><a href="#">Boutique</a></li>
-          <li><a href="#">Contact</a></li>
-         
-        </ul>
-        <div>
-          <a href="/Home/Inscription">
-        <button>Connexion</button>
-      </a>
-      </div>
-      </nav>
-    </header>
+   
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+   
+    <img src="/home/ndongba/app_beautyFront/src/assets/images/Black Yellow Illustration Beauty and Spa  Logo 1.svg">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Acceuil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Clients</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Professionnels</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Nous Contacter</a>
+        </li>
+        <a href="/Home/Login">
+        <button type="submit" class="btn">Connexion</button>
+        </a>
+      </ul>
+     
+    </div>
+  </div>
+</nav>
+    
   </template>
   
   <script>
@@ -27,7 +40,7 @@
   
   <style scoped>
   header {
-    background-color: #333;
+    background-color: white;
     color: #fff;
     padding: 15px;
   }
@@ -43,23 +56,30 @@
   }
   
   nav ul li a {
-    color: #fff;
+    color: black;
     text-decoration: none;
   }
 
-  .topbar{
+  /* .topbar{
     display: flex;
-    justify-content: space-around;
+    
+    gap: 800px;
     font-size: 20px;
     color: #fff;
-  }
-
+  } */
+.navbar{
+ gap: 100px;
+}
   .menu{
     display: flex;
     gap: 50px;
     margin-right: 50px;
     margin-top: 20px;
     
+  }
+
+  .btn{
+    background-color: #FFCDB3;
   }
   </style>
   

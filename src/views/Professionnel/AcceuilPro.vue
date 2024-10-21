@@ -40,11 +40,7 @@
                   <td>2</td>
                   <td>3</td>
                 </tr>
-                <tr>
-                  <td>Vernis</td>
-                  <td>2</td>
-                  <td>3</td>
-                </tr>
+                
               </tbody>
             </table>
 
@@ -117,7 +113,7 @@
         <div class="historique">
           
           <div>
-          <h2>Rendez-Vous À Venir</h2>
+          <h2>Historique des Rendez-Vous</h2>
           <div>
             <div class="ligne1">
             <div>
