@@ -7,22 +7,7 @@
           <input id="input" type="text" v-model="filters.name" placeholder="Etablissement" />
         </div>
   
-        <div class="search-field">
-          
-          <input id="input" type="text" v-model="filters.category" placeholder="Position actuelle" />
-        </div>
-  
-        <div class="search-field">
-          
-          <input id="input" type="date" v-model="filters.location" placeholder="Date " />
-        </div>
-  
-        <div class="search-field">
-          
-          <input id="input" type="time" v-model="filters.rating" placeholder="Heure" min="0" max="5" />
-        </div>
-  
-        <button type="submit">Rechercher</button>
+      <button type="submit">Rechercher</button>
       </form>
     </div>
   </template>
@@ -36,9 +21,7 @@
       // Définir les filtres comme un objet réactif
       const filters = ref({
         name: '',
-        category: '',
-        location: '',
-        rating: ''
+       
       });
   
       // Méthode pour gérer la soumission du formulaire
@@ -69,6 +52,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0;
+    margin-top: 200px;
     
   }
   
@@ -91,13 +75,29 @@
     font-size: 32px;
     border-radius: 10px;
     background-color: #FFCDB3;
+    
   }
 
   #input{
-    width: 400px;
+    width: 350px;
     height: 70px;
     font-size: 32px;
+    border-radius: 20px
     
+  }
+
+  @media screen and (max-width: 420px){
+    #input{
+      margin-top: 5px;
+    }
+
+    button{
+      margin-top: 20px;
+      width: 125px;
+      font-size: 21px;
+      height: 40px;
+      padding-top: none;
+    }
   }
   </style>
   

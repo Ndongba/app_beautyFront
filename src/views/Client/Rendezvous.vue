@@ -1,55 +1,64 @@
 <template>
-<main>
-
+  <main>
     <h1>Mes Rendez-Vous</h1>
-   <div class="block"> 
-    <div class="block1">
-        <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="..." class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    <div class="block">
+      <div v-if="reservations.length > 0">
+        <ul>
+          <li v-for="reservation in reservations" :key="reservation.id">
+            <h5>{{ reservation.proprestation.name }}</h5>
+            <p>Date: {{ reservation.date_prévue }}</p>
+            <p>Heure: {{ reservation.heure_prévue }}</p>
+            <p>Montant: {{ reservation.montant }} FCFA</p>
+            <button @click="toggleDetail(reservation.id)">Voir Détails</button>
+            <div v-if="selectedReservation === reservation.id">
+              <p>Status: {{ reservation.status }}</p>
+              <p>Client: {{ reservation.client.name }}</p>
+              <!-- Ajouter d'autres détails si nécessaire -->
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div v-else>
+        <p>Aucune réservation trouvée.</p>
       </div>
     </div>
-  </div>
-</div>
-    </div>
-    <div>
-        <div class="card" style="width: 50rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="btn btn-primary">Continuer</a>
-    
-  </div>
-</div>
-    </div>
-   </div>
-</main>
-
-</template>
-<script>
-export default {
-    name:"Rendezvous"
-}
-</script>
-<style scoped>
-
-.block{
+  </main>
+  </template>
+  
+  <script>
+  import { getClientReservations } from '@/services/Reservation';
+  
+  export default {
+    name: "Rendezvous",
+    data() {
+      return {
+        reservations: [],
+        selectedReservation: null,
+      };
+    },
+    methods: {
+      async fetchReservations() {
+        try {
+          const response = await getClientReservations();
+          this.reservations = response.data;
+        } catch (error) {
+          console.error("Erreur lors de la récupération des réservations:", error);
+        }
+      },
+      toggleDetail(reservationId) {
+        this.selectedReservation = this.selectedReservation === reservationId ? null : reservationId;
+      },
+    },
+    mounted() {
+      this.fetchReservations();
+    },
+  };
+  </script>
+  
+  <style scoped>
+  .block {
     display: flex;
     justify-content: space-around;
-}
-</style>
+  }
+  </style>
+  

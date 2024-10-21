@@ -53,7 +53,7 @@
                             <a href="/Professionnel/Prestation">   
                                 <div>
                                     <span class="icon">
-                                        <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/map_beauty-salon.svg">
+                                        <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/map_beauty-salon _1.svg">
                                     </span>
                                     <span class="title">Prestations</span>
                                 </div>
@@ -92,7 +92,7 @@
 </template>
 
 <script>
-import AuthService from "@/services/AuthService";
+import { logout } from "@/services/AuthService";
 import { useRouter } from "vue-router"; // Importation du router
 
 export default {
@@ -103,7 +103,7 @@ export default {
         const handleLogout = async () => {
             try {
                 // Appel au service pour déconnecter l'utilisateur
-                await AuthService.logout();
+                await logout();
                 // Redirection vers la page de connexion après la déconnexion
                 router.push("/login");
             } catch (error) {

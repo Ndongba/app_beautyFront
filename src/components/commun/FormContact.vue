@@ -51,11 +51,11 @@
 }
 
 #label{
-    font-size: 36px;
+    font-size: 20px;
 }
 
 #input{
-    font-size: 28px;
+    font-size: 16px;
     width: auto;
     height: 50px;
     border-radius: 20px;
@@ -82,5 +82,31 @@
         padding-left: 10px;
         padding-right: 10px;
         margin-top: 20px;
+}
+
+@media screen and (max-width: 420px) {
+    .form{
+        margin-top: 30px;
+    }
+    #input{
+        width: 300px;
+        font-size: 21px;
+    }
+
+    .class1{
+        display: block;
+    }
+
+    #message{
+        width: 300px;
+    }
+
+    .form{
+        width: 375px;
+    }
+
+    label{
+        font-size: 16px;
+    }
 }
 </style>

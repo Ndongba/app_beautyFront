@@ -1,3 +1,4 @@
+// src/services/prestation.js
 import axios from 'axios';
 import { apiUrl } from '../config/apiConfig'; // Assurez-vous que l'URL de votre API est bien définie dans apiConfig.js
 
@@ -7,8 +8,8 @@ const getAccessToken = () => {
 };
 
 // Fonction pour récupérer toutes les prestations
-export const getPrestations = () => {
-  return axios.get(`${apiUrl}prestations`, {
+export const getReservations = () => {
+  return axios.get(`${apiUrl}reservations`, {
     headers: {
       'Authorization': `Bearer ${getAccessToken()}`,
     },
@@ -16,36 +17,37 @@ export const getPrestations = () => {
 };
 
 // Fonction pour récupérer une prestation par ID
-export const getPrestationById = (id) => {
-  return axios.get(`${apiUrl}prestations/${id}`, {
+export const getReservationById = (id) => {
+  return axios.get(`${apiUrl}reservations/${id}`, {
     headers: {
       'Authorization': `Bearer ${getAccessToken()}`,
     },
   });
 };
 
-// Fonction pour récupérer les prestations d'un professionnel par ID
-export const getPrestationByProfessionnel = (id) => {
-  return axios.get(`${apiUrl}professionnel/prestations/${id}`, {
+// Fonction pour récupérer les réservations d'un client
+export const getClientReservations = () => {
+  return axios.get(`${apiUrl}reservations/client`, {
     headers: {
       'Authorization': `Bearer ${getAccessToken()}`,
     },
   });
 };
+
 
 // Fonction pour ajouter une nouvelle prestation
-export const addPrestation = (prestation) => {
-  return axios.post(`${apiUrl}prestations`, prestation, {
+export const addReservation = (reservation) => {
+  return axios.post(`${apiUrl}reservations`, reservation, {
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       'Authorization': `Bearer ${getAccessToken()}`,
     },
   });
 };
 
 // Fonction pour mettre à jour une prestation existante
-export const updatePrestation = (id, prestation) => {
-  return axios.put(`${apiUrl}prestations/${id}`, prestation, {
+export const updateReservation = (id, reservation) => {
+  return axios.put(`${apiUrl}reservations/${id}`, reservation, {
     headers: {
       'Authorization': `Bearer ${getAccessToken()}`,
     },
@@ -53,8 +55,8 @@ export const updatePrestation = (id, prestation) => {
 };
 
 // Fonction pour supprimer une prestation par ID
-export const deletePrestation = (id) => {
-  return axios.delete(`${apiUrl}prestations/${id}`, {
+export const deleteReservation = (id) => {
+  return axios.delete(`${apiUrl}reservations/${id}`, {
     headers: {
       'Authorization': `Bearer ${getAccessToken()}`,
     },

@@ -2,21 +2,28 @@
     <main>
       <div class="principal">
         <div>
-          <!-- <img src=""/> -->
+          <img src="/home/ndongba/app_beautyFront/src/assets/client/surprised-african-woman-covering-her-mouth-by-hand-while-looking-smartphone-screen.svg" id="image">
         </div>
-        <div class="class">
-          <h1>Connectez-vous</h1>
+        <div class="form">
+          <h1 id="titre">Connectez-vous</h1>
           <div>
+            <div>
             <label for="email">Email</label>
+          </div>
             <input type="email" id="input" v-model="credentials.email" placeholder="Entrer votre email" required />
           </div>
           <div>
+            <div>
             <label for="password">Mot de Passe</label>
+          </div>
             <input type="password" id="input2" v-model="credentials.password" placeholder="Entrer votre mot de passe" required />
           </div>
           <div>
-            <button id="button" @click="login">Se Connecter</button>
+            <button id="button" @click="performLogin">Se Connecter</button>
           </div>
+          <p>Vous n'avez-pas de compte 
+            <a href="/Home/Inscription">S'inscrire</a>
+          </p>
         </div>
       </div>
     </main>
@@ -24,11 +31,8 @@
   
   <script setup>
   import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import AuthService from '@/services/AuthService';
-
-
-// import AuthService from '../../services/AuthService';
+  import { useRouter } from 'vue-router';
+  import { login as apiLogin } from '@/services/AuthService'; // Renommage de l'importation pour éviter le conflit
   
   const credentials = ref({
     email: '',
@@ -37,36 +41,43 @@ import AuthService from '@/services/AuthService';
   
   const router = useRouter();
   
-  async function login() {
+  async function performLogin() { // Renommé ici
     try {
-      const response = await AuthService.login(credentials.value);
-      console.log('rrrr', response);
-      
+      const response = await apiLogin(credentials.value); // Utilisation de l'import renommé
+      console.log('Réponse de l\'API:', response);
+  
+      // Récupérer le token d'accès
+      const accessToken = response.access_token;
+  
+      // Stocker le token dans le local storage
+      localStorage.setItem('access_token', accessToken);
+  
       alert('Connexion réussie');
-      
-      
+  
+      // Récupérer les noms de rôle
+      const userRoles = response.user.roles.map(role => role.name); // Récupérer les noms des rôles
+  
       // Redirection basée sur le rôle de l'utilisateur
-      if (response.user.role_id === 1) {
+      if (userRoles.includes("admin")) {
         router.push('/admin-dashboard');
-      } else if (response.user.role_id === 3) {
+      } else if (userRoles.includes("professionnel")) {
         router.push('/Professionnel/Acceuil');
-      } else if (response.user.role_id === 2) {
+      } else if (userRoles.includes("client")) {
         router.push('/Acceuil/Client');
-
       } else {
         throw new Error('Rôle non supporté');
       }
     } catch (error) {
       alert('Erreur lors de la connexion. Veuillez vérifier vos informations.');
-     
-      
+      console.error(error); // Afficher l'erreur dans la console pour le débogage
     }
   }
   </script>
   
+  
   <style scoped>
   #image {
-    height: 100%;
+    width: 700px;;
   }
   
   #input {
@@ -86,6 +97,7 @@ import AuthService from '@/services/AuthService';
     gap: 100px;
   }
   
+  
   #button {
     width: 650px;
     height: 50px;
@@ -100,6 +112,48 @@ import AuthService from '@/services/AuthService';
     height: 50px;
     font-size: 30px;
     border-radius: 10px;
+  }
+
+  @media screen and (max-width: 420px) {
+    .principal{
+      display: block;
+    
+    }
+
+    #image{
+      width: 400px;
+    }
+
+    #input{
+      width: 350px;
+      margin-left: 25px;
+      font-size: 21px;
+      
+    }
+
+    #input2{
+      width: 350px;
+      margin-left: 25px;
+      font-size: 21px;
+    }
+
+    label{
+      font-size: 24px;
+      margin-left: 25px
+    }
+
+    #button{
+      width: 350px;
+      margin-top: 50px;
+      margin-left: 25px;
+      font-size: 21px;
+      margin-bottom: 30px;
+    }
+
+    #titre{
+      text-align: center;
+      margin-top: 30px;
+    }
   }
   </style>
   
