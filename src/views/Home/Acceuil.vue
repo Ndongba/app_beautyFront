@@ -177,9 +177,9 @@
   </template>
   
   <script>
-  import Header from "../../components/commun/Header.vue";
-  import Footer from "../../components/commun/Footer.vue";
-    import FormContact from "../../components/commun/FormContact.vue";
+import Header from "../../components/commun/Header.vue";
+import Footer from "../../components/commun/Footer.vue";
+import FormContact from "../../components/commun/FormContact.vue";
 import BarreRecherche from "../../components/commun/BarreRecherche.vue";
 
   

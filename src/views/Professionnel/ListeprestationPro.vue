@@ -13,51 +13,51 @@
         <h1 class="titre">Quelles prestations proposées-vous ?</h1>
         <div class="block1">
             <div class="class1">
-                <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/map_beauty-salon.svg">
+                <img src="@/assets/professionnel/map_beauty-salon.svg">
                 <h1>Salon de Coiffure</h1>
             </div>
             <div class="class2">
-                <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/manicure 1.svg">
+                <img src="@/assets/professionnel/manicure 1.svg">
                 <h1>Salon Manucure</h1>
             </div>
         </div>
         <div class="block2">
             <div class="class3">
-                <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/hugeicons_chair-barber.svg">
+                <img src="@/assets/professionnel/hugeicons_chair-barber.svg">
                 <h1>Barbier</h1>
             </div>
             <div class="class4">
-                <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/hair-treatment 1.svg">
+                <img src="@/assets/professionnel/hair-treatment 1.svg">
                 <h1>Institut de Beauté</h1>
             </div>
         </div>
         <div class="block3">
             <div class="class5">
-                <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/material-symbols_spa.svg">
+                <img src="@/assets/professionnel/material-symbols_spa.svg">
                 <h1>Spa</h1>
             </div>
             <div class="class6">
-                <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/massage 1.svg">
+                <img src="@/assets/professionnel/massage 1.svg">
                 <h1>Massage</h1>
             </div>
         </div>
         <div class="block4">
             <div class="class7">
-                <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/waxing 1.svg">
+                <img src="@/assets/professionnel/waxing 1.svg">
                 <h1>Epilation</h1>
             </div>
             <div class="class8">
-                <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/eye-makeup 1.svg">
+                <img src="@/assets/professionnel/eye-makeup 1.svg">
                 <h1>Cils et Sourcils</h1>
             </div>
         </div>
         <div class="block5">
             <div class="class9">
-                <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/tatoo 1.svg">
+                <img src="@/assets/professionnel/tatoo 1.svg">
                 <h1>Tatouage et Percing</h1>
             </div>
             <div class="class10">
-                <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/face-cleanser 1.svg">
+                <img src="@/assets/professionnel/face-cleanser 1.svg">
                 <h1>Soins du Visage et de la Peau</h1>
             </div>
         </div>
