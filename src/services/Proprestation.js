@@ -13,5 +13,10 @@ export default {
       console.error('Erreur lors de la récupération du proprestation_id:', error);
       throw error;
     }
+  },
+
+  async getProprestationDetails(proprestationId) {
+    return await axios.get(`${apiUrl}proprestations/${proprestationId}`);
   }
+
 };

@@ -1,26 +1,45 @@
 <template>
-  <HeaderConnect/>
+  <HeaderConnect />
   <main>
-    <div class="images">
-    <div>
-    <img src="/home/ndongba/app_beautyFront/src/assets/images/Group 118.svg" id="img1">
+    <div class="images-container">
+    <div v-if="professionnel?.images && professionnel.images.length > 0">
+      <!-- Conteneur principal des images -->
+      <div class="images-grid">
+        <!-- Grande image -->
+        <div class="main-image">
+          <img 
+            :src="getImageUrl(professionnel.images[0].image_path)" 
+            alt="Image principale du professionnel" 
+            class="professional-image"
+          />
+        </div>
+        
+        <!-- Conteneur des images secondaires -->
+        <div class="secondary-images">
+          <div v-for="(image, index) in professionnel.images.slice(1, 3)" 
+               :key="image.id"
+               class="secondary-image">
+            <img 
+              :src="getImageUrl(image.image_path)" 
+              alt="Image secondaire du professionnel" 
+              class="professional-image"
+            />
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-      <div>
-    <img src="/home/ndongba/app_beautyFront/src/assets/images/Group 118.svg">
-  </div> 
-  <div>
-    <img src="/home/ndongba/app_beautyFront/src/assets/images/Group 118.svg">
+    <div v-else>
+      <p>Aucune image disponible</p>
+    </div>
   </div>
-  </div>
-  </div>
-    
+
+
     <div class="class">
       <h1>{{ professionnel?.nom }}</h1>
-      <h2> Liste des Prestations</h2>
-      <h2>Choisir le ou les Prestations Souhaitées</h2>
+      <h3>Liste des Prestations</h3>
+      <h3>Choisir le ou les Prestations Souhaitées</h3>
+
       <div class="block2">
-       
         <div class="block2_1">
           <div
             v-for="prestation in prestations"
@@ -38,90 +57,49 @@
             </div>
           </div>
         </div>
+
         <div class="card" style="width: 50rem;">
           <div class="card-body">
-            <h5 class="card-title">Résumé des prestations choisies</h5>
+            <h4 class="card-title">Résumé des prestations choisies</h4>
             <p class="card-text">
-              Prestations :
-              {{ selectedPrestations.length > 0 ? selectedPrestations.map(p => p.libelle).join(', ') : 'Aucune prestation sélectionnée' }}
+              Prestations : 
+              {{ selectedPrestations.length > 0 
+                ? selectedPrestations.map(p => p.libelle).join(', ') 
+                : 'Aucune prestation sélectionnée' 
+              }}
             </p>
             <button class="btn btn-primary" @click="goToNextPage">Continuer</button>
           </div>
         </div>
       </div>
-      <div>
-        <h2>Desciption</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dicta sint consequuntur repudiandae veritatis dolore sapiente aut consequatur, quod, quaerat, nemo recusandae suscipit itaque. Eveniet laudantium necessitatibus culpa quis aspernatur!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quis sapiente ipsam quos quae incidunt rerum ratione maiores vero tenetur distinctio debitis, in est placeat magni amet atque veniam ex!
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos voluptate illum dolorem doloribus aut ex, laborum ab expedita id quas cum quisquam saepe similique dolorum hic nostrum, architecto eaque distinctio?
 
+      <div>
+        <h2>Description</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dicta sint consequuntur repudiandae veritatis dolore...
         </p>
       </div>
-      <div clas="Jour">
+
+      <div class="disponibilites-section">
         <h2>Horaires</h2>
-        <div class="horaire">
-          <div>
-            <p>Mardi</p>
+        <div v-if="disponibilites.length > 0">
+          <div v-for="disponibilite in disponibilites" :key="disponibilite.id" class="Jour">
+            <div class="horaire">
+              <div><p>{{ disponibilite.jour }}</p></div>
+              <div>
+                <p>{{ disponibilite.heure_ouverture }}</p>
+                <p>{{ disponibilite.heure_fermeture }}</p>
+              </div>
+            </div>
           </div>
-          <div>
-            
-          <p>09H00-18H00</p>
-          </div>
-        </div> 
-      <div class="horaire">
-       <div>
-        <p>Mercredi</p>
-       </div>
-       <div>
-        
-        <P>09H00-18H00</P>
-       </div>
-      </div> 
-      <div class="horaire">
-       <div>
-        <p>Jeudi</p>
-       </div>
-       <div>
-        
-        <P>09H00-18H00</P>
-       </div>
-       
-      </div> 
-      <div class="horaire"> 
-       <div>
-        <p>Vendredi</p>
-        
-       </div>
-       <div>
-        <P>09H00-18H00</P>
-       </div>
-       
-      </div> 
-      <div  class="horaire"> 
-        <div>
-          <p>Samedi</p>
-          
         </div>
-        <div>
-          <P>09H00-18H00</P>
+        <div v-else>
+          <p>Aucune disponibilité trouvée</p>
         </div>
-       
-      </div> 
-      <div class="horaire"> 
-       <div>
-        <p>Dimanche</p>
-       </div>
-       <div>
-        
-        <P>09H00-18H00</P>
-       </div>
-        
-      </div>
       </div>
     </div>
-    
   </main>
-  <Footer/> 
+  <Footer />
 </template>
 
 <script>
@@ -131,10 +109,12 @@ import { getProfessionnelById } from '@/services/Professionnel';
 import { useRoute, useRouter } from 'vue-router';
 import HeaderConnect from '@/components/commun/HeaderConnect.vue';
 import Footer from '@/components/commun/Footer.vue';
+import { getDisponibilteByProfessionnel } from '@/services/Disponibilte';
+import { IMG_URL } from '@/config/apiConfigImage';
 
 export default {
   name: "DetailPro",
-  components:{
+  components: {
     HeaderConnect,
     Footer
   },
@@ -144,16 +124,41 @@ export default {
     const professionnel = ref(null);
     const prestations = ref([]);
     const selectedPrestations = ref([]);
+    const disponibilites = ref([]);
+    const error = ref(null);
 
     const fetchDetails = async () => {
       const professionnelId = route.params.id;
       try {
+        // Récupération des données du professionnel
         const responsePro = await getProfessionnelById(professionnelId);
-        professionnel.value = responsePro;
-        const responsePrest = await getPrestationByProfessionnel(professionnelId);
-        prestations.value = responsePrest.data.données;
+        professionnel.value = responsePro.data; // Assurez-vous que la réponse contient les images
+        console.log(professionnel.value);
+        
+        // Récupération des prestations
+          const responsePrest = await getPrestationByProfessionnel(professionnelId);
+          prestations.value = responsePrest.data.data;
+          console.log('Prestations récupérées', prestations.value);
+
+                  
+
+        // Récupération des disponibilités avec gestion d'erreur
+        try {
+          const responseDisponibilites = await getDisponibilteByProfessionnel(professionnelId);
+          if (responseDisponibilites.data && responseDisponibilites.data.données) {
+            disponibilites.value = responseDisponibilites.data.données;
+            console.log('Disponibilités récupérées:', disponibilites.value);
+          } else {
+            console.error('Format de réponse invalide pour les disponibilités');
+            disponibilites.value = [];
+          }
+        } catch (dispError) {
+          console.error('Erreur lors de la récupération des disponibilités:', dispError);
+          disponibilites.value = [];
+          error.value = 'Impossible de récupérer les disponibilités';
+        }
       } catch (error) {
-        console.error('Erreur lors de la récupération des détails du professionnel:', error);
+        console.error('Erreur lors de la récupération des détails:', error);
       }
     };
 
@@ -169,9 +174,17 @@ export default {
       if (selectedPrestations.value.length === 0) {
         alert("Veuillez sélectionner au moins une prestation.");
       } else {
-        // Stocker les prestations sélectionnées dans le localStorage
         localStorage.setItem('selectedPrestations', JSON.stringify(selectedPrestations.value));
         router.push({ name: 'Planification' });
+      }
+    };
+    
+
+    const getImageUrl = (images) => {
+      if (images && images.length > 0) {
+        return IMG_URL + images; // Retourne le chemin de la première image
+      } else {
+        return '/path/to/default-image.jpg'; // Remplacez par une image par défaut si aucune image n'est disponible
       }
     };
 
@@ -181,8 +194,11 @@ export default {
       professionnel,
       prestations,
       selectedPrestations,
+      disponibilites,
+      error,
       togglePrestation,
       goToNextPage,
+      getImageUrl
     };
   }
 };
@@ -195,30 +211,176 @@ export default {
 
 .block2_1 {
   display: flex;
-  gap: 100px;
+  flex-direction: column; /* Alignement vertical */
+  gap: 20px; /* Ajuster l'espacement entre les éléments */
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.Jour {
+  margin-bottom: 20px;
+}
+
+.block2 {
+  display: flex;
+  gap: 70px;
   justify-content: center;
 }
-.images{
+
+.horaire {
   display: flex;
+  gap: 150px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+.btn {
+  background-color: #FFCDB3;
+  color: black;
+}
+
+.disponibilites-section {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  font-size: 20px;
+}
+
+.images-container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.images-grid {
+  display: flex;
+  gap: 20px;
+  height: 600px; /* Hauteur fixe pour le conteneur */
+}
+
+.main-image {
+  flex: 2;
+  width: 500px;
+  height: 100%;
+}
+
+
+
+h2{
+  margin-left: 100px;
+}
+
+h3{
+  margin-left: 100px;
+}
+
+p{
+  margin-left: 100px;
+}
+
+
+.secondary-images {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.secondary-image {
+  height: calc(50% - 10px); /* La moitié de la hauteur moins la moitié du gap */
+}
+
+.professional-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+/* Responsive design pour mobile */
+@media (max-width: 480px) {
+  .images-container {
+    padding: 10px;
+  }
+
+  .images-grid {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .main-image {
+    height: 250px;
+    width: 370px;
+  }
+
+  .secondary-images {
+    flex-direction: row;
+    height: auto;
+  }
+
+  .secondary-image {
+    width: calc(50% - 5px);
+    height: auto;
+  }
+
+  .block2 {
+    flex-direction: column;
+    gap: 20px;
+    width: 200px;
+    
+    
+  }
+
+  .block2_1 .card {
+    width: 50px;
+  }
+
+  .block2 .card{
+    width: 50px;
+  }
+  .btn {
+    width: 40%;
+    text-align: center;
+  }
+
+  .disponibilites-section {
+    margin-top: 20px;
+    padding: 15px;
+  }
+
+  .horaire {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .Jour p,
+  .class h1,
+  .class h2,
+  .class h3,
+  .class p {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .professional-image {
+    border-radius: 6px;
+  }
+
+ 
+
  
 }
 
-#img1{
-  width: 750px;
-}
 
-.Jour{
-margin-bottom: 150px
-}
-.block2{
-  display: flex;
-  gap:70px;
-  justify-content: center;
-}
 
-.horaire{
-  display: flex;
-  gap: 150px;
-}
+
 
 </style>

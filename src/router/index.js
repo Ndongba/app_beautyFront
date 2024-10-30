@@ -132,7 +132,12 @@ const router = createRouter({
     path:'/Home/Client/Rendezvous',
     name:'Rendezvous',
     component: Rendezvous
-   }
+   },
+   {
+    path: '/reservations/edit/:id',
+    name: 'EditReservation',
+    component: () => import('/home/ndongba/app_beautyFront/src/views/Client/EditReservation.vue') // Remplacez par le bon composant
+  }
    
       
    

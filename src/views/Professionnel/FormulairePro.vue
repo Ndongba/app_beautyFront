@@ -29,7 +29,7 @@
           </div>
           <div>
             <img
-              src="/home/ndongba/app_beautyFront/src/assets/professionnel/filter 1.svg"
+              src="@/assets/professionnel/filter 1.svg"
               alt="Filter icon"
             />
           </div>

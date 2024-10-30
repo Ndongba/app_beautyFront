@@ -22,7 +22,7 @@
             <input type="text" id="filter" name="filter" placeholder="Filtrer">
         </div>
         <div>
-            <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/filter 1.svg">
+            <img src="@/assets/professionnel/filter 1.svg">
         </div>
     </div>
     <div>
@@ -135,6 +135,7 @@
   
   <script>
   import DashboardProfessionnel from "../../components/professionnel/DashboardProfessionnel.vue";
+  
   
   export default {
     name: "AccueilPro",

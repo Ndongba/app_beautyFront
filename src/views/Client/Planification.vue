@@ -1,31 +1,32 @@
 <template>
   <HeaderConnect/>
     <main>
-      <h1>Choisir la date et l'heure du Rendez-Vous</h1>
+      <h2 class="mt-5 ml">Choisir la date et l'heure du Rendez-Vous</h2>
   
       <div class="block">
         <div class="block1">
           <div>
             <input v-model="selectedDate" type="date" name="date" id="date" />
           </div>
-  
-          <div
+          <div class="hours-grid">
+          <div 
             v-for="(heure, index) in heures"
             :key="index"
             :class="['card', 'w-2550', 'mb-3', { selected: selectedHour === heure }]"
             @click="selectHour(heure)"
           >
             <div class="card-body">
-              <h5 class="card-title">{{ heure }}</h5>
+              <h5 class="card-title fs-4">{{ heure }}</h5>
             </div>
           </div>
+        </div>
         </div>
   
         <div class="block2">
           <div class="card" style="width: 50rem;">
             <div class="card-body">
               <h5 class="card-title">Détails du Rendez-vous</h5>
-              <p class="card-text">
+              <p class="card-text fs-4">
                 Date choisie : {{ selectedDate || 'Non sélectionnée' }} <br />
                 Heure choisie : {{ selectedHour || 'Non sélectionnée' }} <br />
                 Prestations : {{ selectedPrestations.map(p => p.libelle).join(', ') || 'Aucune prestation choisie' }} <br />
@@ -61,7 +62,7 @@ import HeaderConnect from '@/components/commun/HeaderConnect.vue';
       return {
         selectedDate: null,
         selectedHour: null,
-        heures: ["09:00", "09:30", "10:00","10:30","11:00","11h30","12h00","12h30","13h00","13h30","14h00","15h00","15h30","16h00","16h30","17h00","17h30"],
+        heures: ["09:00", "09:30", "10:00","10:30","11:00","11h30","12h00","12h30","13h00","13h30","14h00","15h00","15h30","16h00","16h30","17h00","17h30","18h00"],
         selectedPrestations: [],
         total: 0,
         client_id: null,
@@ -113,48 +114,7 @@ import HeaderConnect from '@/components/commun/HeaderConnect.vue';
         }
       },
 
-//       async finalizeAppointment() {
-//   if (!this.selectedDate || !this.selectedHour) {
-//     alert("Veuillez sélectionner une date et une heure.");
-//     return;
-//   }
 
-//   if (!this.client_id) {
-//     alert("Impossible de récupérer l'ID du client.");
-//     return;
-//   }
-
-//   // Récupérer les IDs des prestations sélectionnées
-//   const prestations = this.selectedPrestations.map(p => p.id);
-
-//   if (!prestations.length) {
-//     alert("Veuillez sélectionner au moins une prestation.");
-//     return;
-//   }
-
-//   const appointmentData = {
-//     client_id: this.client_id,
-//     date_prévue: this.selectedDate,
-//     heure_prévue: this.selectedHour,
-//     prestations: this.selectedPrestations, // Tableau d'IDs des prestations sélectionnées   
-//     proprestation_id: this.proprestationId, 
-//     montant: this.calculateTotal()
-//   };
-  
-//   console.log(appointmentData);
-
-//   try {
-//     await addReservation(appointmentData);
-//     alert(`Rendez-vous fixé le ${this.selectedDate} à ${this.selectedHour}.`);
-//   } catch (error) {
-//     if (error.response && error.response.status === 422) {
-//       alert("Erreur de validation : " + error.response.data.message);
-//     } else {
-//       alert('Erreur lors de la création du rendez-vous. Veuillez réessayer.');
-//     }
-//     console.error(error);
-//   }
-// }
 
 async finalizeAppointment() {
       if (!this.selectedDate || !this.selectedHour) {
@@ -197,6 +157,8 @@ async finalizeAppointment() {
         // Appel à la méthode pour ajouter la réservation
         await addReservation(appointmentData);
         alert(`Rendez-vous fixé le ${this.selectedDate} à ${this.selectedHour}.`);
+        // Rediriger vers la page des réservations
+    this.$router.push('/Home/Client/Rendezvous');
       } catch (error) {
         if (error.response && error.response.status === 422) {
           alert("Erreur de validation : " + error.response.data.message);
@@ -215,6 +177,7 @@ async finalizeAppointment() {
   .block {
     display: flex;
     justify-content: space-around;
+    margin-top: 20px;
   }
   
   #date {
@@ -230,6 +193,15 @@ async finalizeAppointment() {
   .card.selected {
     border: 2px solid #007bff;
   }
+
+  .hours-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  
+}
   
   .w-750 {
     width: 18rem;
@@ -238,4 +210,19 @@ async finalizeAppointment() {
   .block2 {
     margin-top: 20px;
   }
+
+  @media (max-width: 480px){
+.block{
+  display: block;
+}
+.hours-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 300px;
+  margin: 0 auto;
+  }
+
+  
+}
   </style>
