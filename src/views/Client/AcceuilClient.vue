@@ -24,9 +24,9 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">{{ professionnel.name }}</h5>
-                        <p class="card-text">{{ professionnel.description }}</p>
+                        <p class="card-text">{{ professionnel.professionnel.adresse }}</p>
                         <a v-if="professionnel.professionnel" :href="'/professionnel/' + professionnel.professionnel.id"
-                            class="btn btn-primary">Voir Profil</a>
+                            class="btn ">Voir Profil</a>
                     </div>
                 </div>
             </div>
@@ -154,7 +154,9 @@ h1 {
     /* Assure que les coins de l'image suivent les coins arrondis de la carte */
 }
 
-
+.btn{
+    background-color: #FFCDB3;
+}
 
 
 /* Ajustement pour les petits écrans */

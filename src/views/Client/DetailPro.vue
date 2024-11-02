@@ -41,7 +41,7 @@
 
       <div class="block2">
         <div class="block2_1">
-          <div
+          <!-- <div
             v-for="prestation in prestations"
             :key="prestation.id"
             class="Prestation"
@@ -55,10 +55,40 @@
                 <p>Prix: {{ prestation.prix }} FCFA</p>
               </div>
             </div>
-          </div>
+          </div> -->
+          <div style="width: 30rem; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"
+          v-for="prestation in prestations"
+            :key="prestation.id"
+            class="Prestation"
+            @click="togglePrestation(prestation)"
+            :class="{ selected: selectedPrestations.includes(prestation) }"
+          >
+            <div class="card l-bg-orange-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-dollar-sign"></i></div>
+                    <div class="mb-4">
+                        <h5 class="card-title mb-0 fs-4">{{ prestation.libelle }}</h5>
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                        <div class="col-8">
+                            <h2 class="d-flex align-items-center mb-0 fs-4">
+                              Prix:{{ prestation.prix }} FCFA
+                            </h2>
+                        </div>
+                        
+                    </div>
+                    <div class="col-4 text-right">
+                            <span>{{ prestation.duree }}<i class="fa fa-arrow-up"></i></span>
+                        </div>
+                    <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                        <div class="progress-bar l-bg-cyan " role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 100%; background-color:#B4838D"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
 
-        <div class="card" style="width: 50rem;">
+        <div class="card" style="width: 40rem; height: 30rem;">
           <div class="card-body">
             <h4 class="card-title">Résumé des prestations choisies</h4>
             <p class="card-text">
@@ -73,13 +103,13 @@
         </div>
       </div>
 
-      <div>
+       <div>
         <h2>Description</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dicta sint consequuntur repudiandae veritatis dolore...
         </p>
-      </div>
-
+      </div> 
+      
       <div class="disponibilites-section">
         <h2>Horaires</h2>
         <div v-if="disponibilites.length > 0">
@@ -206,7 +236,7 @@ export default {
 
 <style scoped>
 .selected {
-  border: 2px solid blue;
+  border: 3px solid #B4838D;
 }
 
 .block2_1 {

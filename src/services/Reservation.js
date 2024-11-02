@@ -55,10 +55,11 @@ export const updateReservation = (id, reservation) => {
 };
 
 // Fonction pour supprimer une prestation par ID
-export const deleteReservation = (id) => {
-  return axios.delete(`${apiUrl}reservations/${id}`, {
+export const cancelReservation = (reservationId) => {
+  return axios.delete(`${apiUrl}reservations/${reservationId}`, {
     headers: {
       'Authorization': `Bearer ${getAccessToken()}`,
     },
   });
 };
+

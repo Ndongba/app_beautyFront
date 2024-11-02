@@ -24,11 +24,6 @@ export async function login(credentials) {
   }
 }
 
-// export function logout() {
-//   localStorage.removeItem('token');
-//   return axios.post(`${apiUrl}logout`);
-// }
-
 export async function logout() {
   const token = localStorage.getItem('token');
 

@@ -156,7 +156,8 @@ async finalizeAppointment() {
 
         // Appel à la méthode pour ajouter la réservation
         await addReservation(appointmentData);
-        alert(`Rendez-vous fixé le ${this.selectedDate} à ${this.selectedHour}.`);
+        
+         alert(`Rendez-vous fixé le ${this.selectedDate} à ${this.selectedHour}.`);
         // Rediriger vers la page des réservations
     this.$router.push('/Home/Client/Rendezvous');
       } catch (error) {
