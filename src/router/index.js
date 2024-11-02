@@ -136,7 +136,7 @@ const router = createRouter({
    {
     path: '/reservations/edit/:id',
     name: 'EditReservation',
-    component: () => import('/home/ndongba/app_beautyFront/src/views/Client/EditReservation.vue') // Remplacez par le bon composant
+    component: () => import('../views/Client/ModalEditReservation.vue') // Remplacez par le bon composant
   }
    
       

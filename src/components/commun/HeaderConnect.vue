@@ -15,18 +15,22 @@
           </li>
           
           <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control me-2" type="text" placeholder="Recherchez un Salon " aria-label="Search" v-model="searchQuery" >
             <button class="btn btn-outline-success" type="submit">Rechercher</button>
           </form>
           <div>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                <li><a class="dropdown-item" @click="logoutUser">Déconnexion</a></li>
-              </ul>
-            </li>
+            <div class="search-container">
+     
+    </div>
+            <li class="nav-item dropdown" v-if="user">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{ user.name }}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                  <li><a class="dropdown-item" @click="logoutUser">Déconnexion</a></li>
+                </ul>
+              </li>
+
           </div>
         </ul>
       </div>
@@ -35,11 +39,25 @@
 </template>
 
 <script>
-import { logout } from "@/services/AuthService"; // Assurez-vous que ce chemin est correct pour le service
+import { logout, getUserProfile } from "@/services/AuthService"; // Assurez-vous que le chemin est correct
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "HeaderConnect",
+  
+  data() {
+    return {
+      user: null,
+    };
+  },
+  
+  async mounted() {
+    try {
+      this.user = await getUserProfile();
+    } catch (error) {
+      console.error("Erreur lors de la récupération du profil :", error);
+    }
+  },
   methods: {
     async logoutUser() {
       const token = localStorage.getItem("token");
@@ -61,9 +79,11 @@ export default defineComponent({
 });
 </script>
 
+
 <style scoped>
 .container-fluid {
   gap: 550px;
+  
 }
 
 .btn {

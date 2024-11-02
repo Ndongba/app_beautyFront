@@ -45,6 +45,7 @@ export default {
 <style scoped>
 footer {
   background-color: #B4838D;
+  margin-top: 150px;
 }
 
 h2 {

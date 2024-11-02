@@ -12,23 +12,23 @@
             <th scope="col">Heure Prévue</th>
             <th scope="col">Montant</th>
             <th scope="col">Status</th>
-            <!-- <th scope="col">Actions</th> -->
+            <th scope="col">Actions</th> 
           </tr>
         </thead>
-        <tbody v-if="reservations.length" v-for="reservation in reservations" :key="reservation.id">
-          <tr>
+        <tbody v-if="reservations.length">
+          <tr v-for="reservation in reservations" :key="reservation.id">
             <td>{{ reservation.proprestation.professionnel.user?.name || '' }}</td>
             <td>{{ reservation.proprestation.prestation.libelle }}</td>
             <td>{{ reservation.date_prévue }}</td>
             <td>{{ reservation.heure_prévue }}</td>
             <td>{{ reservation.montant }}</td>
             <td>{{ reservation.status }}</td>
-            <!-- <td>
-              <button class="btn btn-primary" @click="goToEditPage(Id)">Modifier</button>
+            <td>
+              <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
             </td>
             <td>
-              <button class="btn btn-danger">Supprimer</button>
-            </td> -->
+              <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
+            </td> 
           </tr>
         </tbody>
         <tbody v-else>
@@ -38,20 +38,29 @@
         </tbody>
       </table>
     </div>
+    <!-- Utilisation du composant modal pour l'édition -->
+    <ModalEditReservation
+      :isVisible="showEditModal"
+      :reservationData="selectedReservation"
+      @update-reservation="updateReservation"
+      @close="showEditModal = false"
+    />
   </main>
 </template>
 
 <script>
 import HeaderConnect from '@/components/commun/HeaderConnect.vue';
-import { getClientReservations } from '@/services/Reservation';
+import ModalEditReservation from '@/views/Client/ModalEditReservation.vue';
+import { getClientReservations, cancelReservation, updateReservation } from '@/services/Reservation';
+
 export default {
   name: "Rendezvous",
-  components: { HeaderConnect },
+  components: { HeaderConnect, ModalEditReservation },
   data() {
     return {
       reservations: [],
       selectedReservation: null,
-      proprestationDetails: null,
+      showEditModal: false,
     };
   },
   methods: {
@@ -59,22 +68,45 @@ export default {
       try {
         const response = await getClientReservations();
         this.reservations = response.data;
-        
-        console.log(this.reservations);
-        
       } catch (error) {
         console.error("Erreur lors de la récupération des réservations:", error);
       }
     },
-    toggleDetail(reservationId) {
-      this.selectedReservation = this.selectedReservation === reservationId ? null : reservationId;
+    async cancelReservation(id) {
+      try {
+        await cancelReservation(id);
+        this.reservations = this.reservations.filter(reservation => reservation.id !== id);
+        alert('Réservation annulée avec succès.');
+      } catch (error) {
+        console.error("Erreur lors de l'annulation de la réservation:", error);
+        alert('Erreur lors de l’annulation de la réservation.');
+      }
     },
+    openEditModal(reservation) {
+      this.selectedReservation = reservation;
+      this.showEditModal = true;
+    },
+    async updateReservation(updatedReservation) {
+      try {
+        await updateReservation(updatedReservation.id, updatedReservation);
+        this.reservations = this.reservations.map(reservation =>
+          reservation.id === updatedReservation.id ? updatedReservation : reservation
+        );
+        alert('Réservation modifiée avec succès.');
+      } catch (error) {
+        console.error("Erreur lors de la modification de la réservation:", error);
+        alert('Erreur lors de la modification de la réservation.');
+      }
+    }
   },
   mounted() {
     this.fetchReservations();
-  },
+  }
 };
 </script>
+
+
+
 
 <style scoped>
 .block {

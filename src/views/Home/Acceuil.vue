@@ -17,7 +17,7 @@
             <div class="card mb-3" style="max-width: 1600px;">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="/home/ndongba/app_beautyFront/src/assets/images/client1.png" class="img-fluid rounded-start" alt="...">
+      <img src="@/assets/images/client1.png" class="img-fluid rounded-start" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -48,7 +48,7 @@
       </div>
     </div>
     <div class="col-md-4">
-      <img src="/home/ndongba/app_beautyFront/src/assets/images/Professionnel.png" class="img-fluid rounded-start" alt="...">
+      <img src="@/assets/images/Professionnel.png" class="img-fluid rounded-start" alt="...">
     </div>
   </div>
 </div>
@@ -61,7 +61,7 @@
                 <p id="paragraphe">Expérience incroyable et c'est facile de réserver.<br> Régler les prestations est un jeu d'enfant : pas <br>besoin d'espèces ni de cartes bancaires !</p>
                 <div class="user">
                     <div>
-                        <img src="/home/ndongba/app_beautyFront/src/assets/images/portrait-femme-isolee_23-2151229713.png" alt="portrait-femme">
+                        <img src="@/assets/images/portrait-femme-isolee_23-2151229713.png" alt="portrait-femme">
                     </div>
                 <div>
                     <h3>Bassine NIANG</h3>
@@ -74,7 +74,7 @@
                 <p id="paragraphe">Expérience incroyable et c'est facile de réserver.<br> Régler les prestations est un jeu d'enfant : pas <br>besoin d'espèces ni de cartes bancaires !</p>
                 <div class="user">
                     <div>
-                    <img src="/home/ndongba/app_beautyFront/src/assets/images/portrait-femme-isolee_23-2151229713.png" alt="portrait-femme">
+                    <img src="@/assets/images/portrait-femme-isolee_23-2151229713.png" alt="portrait-femme">
                 </div>
                 <div>
                     <h3>Bassine NIANG</h3>
@@ -87,7 +87,7 @@
                 <p id="paragraphe">Expérience incroyable et c'est facile de réserver.<br> Régler les prestations est un jeu d'enfant : pas <br>besoin d'espèces ni de cartes bancaires !</p>
                 <div class="user">
                     <div>
-                    <img src="/home/ndongba/app_beautyFront/src/assets/images/portrait-femme-isolee_23-2151229713.png" alt="portrait-femme">
+                    <img src="@/assets/images/portrait-femme-isolee_23-2151229713.png" alt="portrait-femme">
                 </div>
                 <div>
                     <h3>Bassine NIANG</h3>
@@ -104,7 +104,7 @@
                         <div class="contact1">
                         <div class="telephone">
                             <div>
-                                <img src="/home/ndongba/app_beautyFront/src/assets/images/telephone.png" alt="logo telephone">
+                                <img src="@/assets/images/telephone.png" alt="logo telephone">
                             </div>
                             <div>
                                 <p id="paragraphe"><strong>Telephone </strong><br>+22177 000 00 00</p>
@@ -112,7 +112,7 @@
                         </div>
                         <div class="email">
                             <div>
-                                <img src="/home/ndongba/app_beautyFront/src/assets/images/email.png" alt="logo email">
+                                <img src="@/assets/images/email.png" alt="logo email">
                             </div>
                             <div>
                                 <p id="paragraphe"><strong>Email</strong><br>example@example.com</p>
@@ -121,7 +121,7 @@
                         </div>
                         <div class="adresse">
                             <div>
-                                <img src="/home/ndongba/app_beautyFront/src/assets/images/adresse.png" alt="">
+                                <img src="@/assets/images/adresse.png" alt="">
                             </div>
                             <div>
                                 

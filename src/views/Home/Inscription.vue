@@ -1,7 +1,7 @@
 <template>
   <main>
     <div>
-      <img src="/home/ndongba/app_beautyFront/src/assets/images/latino-hair-salon-owner-taking-care-client.jpg" id="proclient">
+      <img src="@/assets/images/latino-hair-salon-owner-taking-care-client.jpg" id="proclient">
     </div>
     <div class="form-container mt-4">
       
