@@ -23,7 +23,7 @@
         </div>
   
         <div class="block2">
-          <div class="card" style="width: 50rem;">
+          <div class="card" id="carte2">
             <div class="card-body">
               <h5 class="card-title">Détails du Rendez-vous</h5>
               <p class="card-text fs-4">
@@ -223,7 +223,10 @@ async finalizeAppointment() {
   max-width: 300px;
   margin: 0 auto;
   }
-
+#carte2{
+  width: 250px;
+  margin:0 auto;
+}
   
 }
   </style>

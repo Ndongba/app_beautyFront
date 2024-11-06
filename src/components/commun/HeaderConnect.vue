@@ -19,18 +19,19 @@
             <button class="btn btn-outline-success" type="submit">Rechercher</button>
           </form>
           <div>
-            <div class="search-container">
-     
-    </div>
+            <!-- <div class="search-container">
+              
+            </div> -->
             <li class="nav-item dropdown" v-if="user">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   {{ user.name }}
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                   <li><a class="dropdown-item" @click="logoutUser">Déconnexion</a></li>
+                 
                 </ul>
-              </li>
-
+                </li>
+             
           </div>
         </ul>
       </div>

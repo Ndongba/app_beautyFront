@@ -69,7 +69,8 @@ export default {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
-  width: 300px;
+  width: 500px;
+  height: 300px;
 }
 
 .modal-actions {

@@ -13,49 +13,37 @@
         <section class="client">
             <h1 id="h1">Pour les Clients</h1>
 
-           
-            <div class="card mb-3" style="max-width: 1600px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="@/assets/images/client1.png" class="img-fluid rounded-start" alt="...">
+    <div class="client1">
+    <div>
+        <img src="@/assets/images/client1.png" id="imgClient">
     </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        
-        <p class="card-text fs-4"> Bienvenue sur notre plateforme dédiée aux soins de beauté, où vous pouvez gérer vos rendez-vous en toute simplicité. En quelques clics, vous avez la possibilité de réserver dans le salon de votre choix, de découvrir les services proposés par nos professionnels, et de consulter les avis des autres clients pour vous guider dans votre décision. Suivez et modifiez facilement vos rendez-vous en fonction de vos disponibilités, et recevez des rappels pour ne jamais manquer une séance. Grâce à notre interface intuitive, vous pouvez également comparer les prix, explorer des promotions exclusives, et choisir le créneau horaire qui vous convient le mieux.
+    <div>
+        <p class="fs-4"> Bienvenue sur notre plateforme dédiée aux soins de beauté, où vous pouvez gérer vos rendez-vous en toute simplicité. En quelques clics, vous avez la possibilité de réserver dans le salon de votre choix, de découvrir les services proposés par nos professionnels, et de consulter les avis des autres clients pour vous guider dans votre décision. Suivez et modifiez facilement vos rendez-vous en fonction de vos disponibilités, et recevez des rappels pour ne jamais manquer une séance. Grâce à notre interface intuitive, vous pouvez également comparer les prix, explorer des promotions exclusives, et choisir le créneau horaire qui vous convient le mieux.
 
-            Que vous recherchiez un soin du visage, une manucure, une coupe de cheveux, ou un massage relaxant, nous avons rassemblé les meilleurs experts près de chez vous pour répondre à tous vos besoins. Vous pouvez également sauvegarder vos préférences, consulter l'historique de vos prestations, et partager vos expériences avec votre communauté. Prenez soin de vous sans stress, nous nous occupons du reste. Offrez-vous une expérience beauté personnalisée, pratique et confortable, le tout à portée de main. Vos moments bien-être n'ont jamais été aussi simples à organiser !</p>
-       
-      </div>
+        Que vous recherchiez un soin du visage, une manucure, une coupe de cheveux, ou un massage relaxant, nous avons rassemblé les meilleurs experts près de chez vous pour répondre à tous vos besoins. Vous pouvez également sauvegarder vos préférences, consulter l'historique de vos prestations, et partager vos expériences avec votre communauté. Prenez soin de vous sans stress, nous nous occupons du reste. Offrez-vous une expérience beauté personnalisée, pratique et confortable, le tout à portée de main. Vos moments bien-être n'ont jamais été aussi simples à organiser !</p>
     </div>
-  </div>
-</div>
+   </div>
             
         </section>
         <section class="professionnel">
             <h1 id="h1">Pour les Professionnels</h1>
            
-            <div class="card mb-3" style="max-width: 1600px;">
-  <div class="row g-0">
-   
-    <div class="col-md-8">
-      <div class="card-body">
-        
-        <p class="card-text fs-4"> Vous êtes un professionnel de la beauté ? Rejoignez notre plateforme et simplifiez la gestion de votre activité. En vous inscrivant, vous aurez la possibilité de créer un profil personnalisé, d'ajouter et mettre à jour les services de beauté que vous proposez, ainsi que vos tarifs. Gérez vos disponibilités et vos rendez-vous en temps réel grâce à notre calendrier interactif, et offrez à vos clients une expérience fluide et moderne. Profitez d’une visibilité accrue auprès d’une clientèle en pleine expansion, recevez des avis et évaluations pour renforcer votre réputation, et fidélisez vos clients avec des promotions personnalisées.
+
+
+             <div class="professionnel1">
+                <div>
+                    <p class="fs-4"> Vous êtes un professionnel de la beauté ? Rejoignez notre plateforme et simplifiez la gestion de votre activité. En vous inscrivant, vous aurez la possibilité de créer un profil personnalisé, d'ajouter et mettre à jour les services de beauté que vous proposez, ainsi que vos tarifs. Gérez vos disponibilités et vos rendez-vous en temps réel grâce à notre calendrier interactif, et offrez à vos clients une expérience fluide et moderne. Profitez d’une visibilité accrue auprès d’une clientèle en pleine expansion, recevez des avis et évaluations pour renforcer votre réputation, et fidélisez vos clients avec des promotions personnalisées.
 
             De plus, notre système de gestion intuitif vous permet de suivre vos performances, optimiser votre emploi du temps et recevoir des notifications . Que vous soyez coiffeur, esthéticien, maquilleur, masseur ou autre spécialiste, notre plateforme est conçue pour vous accompagner dans le développement de votre activité. Inscrivez-vous dès aujourd’hui, attirez de nouveaux clients et boostez votre carrière avec des outils qui vous simplifient la vie !</p>
-       
-      </div>
-    </div>
-    <div class="col-md-4">
-      <img src="@/assets/images/Professionnel.png" class="img-fluid rounded-start" alt="...">
-    </div>
-  </div>
-</div>
-            
+                </div>
+                <div>
+                    <img src="@/assets/images/Professionnel.png" id="imgPros">
+                </div>
+             </div>
         </section>
         <h1 id="h1">Avis</h1>
         <section class="temoignage">
+            
             <div class="temoignage1">
                 <h2 id="h2">Le meilleur systeme de reservation</h2>
                 <p id="paragraphe">Expérience incroyable et c'est facile de réserver.<br> Régler les prestations est un jeu d'enfant : pas <br>besoin d'espèces ni de cartes bancaires !</p>
@@ -210,6 +198,10 @@ import BarreRecherche from "../../components/commun/BarreRecherche.vue";
   #floatingTextarea{
     height: 150px;
   }
+  .pro{
+    display: flex;
+  }
+
 
     .form1{
     background-color: #B4838D;
