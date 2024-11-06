@@ -10,12 +10,12 @@ import ClientPro from '@/views/Professionnel/ClientPro.vue'
 import PrestationPro from '@/views/Professionnel/PrestationPro.vue'
 import FormulairePro from '@/views/Professionnel/FormulairePro.vue'
 import FormulaireProupdate from '@/views/Professionnel/FormulaireProupdate.vue'
-import ListeprestationPro from '@/views/Professionnel/ListeprestationPro.vue'
+
 import LoginClient from '@/views/Home/Login.vue'
 import AcceuilClient from '@/views/Client/AcceuilClient.vue'
 import DetailPro from '@/views/Client/DetailPro.vue'
 import Inscription from '@/views/Home/Inscription.vue'
-import ListePrestations from '@/views/Client/ListePrestations.vue'
+
 import Planification from '@/views/Client/Planification.vue'
 import Rendezvous from '@/views/Client/Rendezvous.vue'
 
@@ -80,11 +80,11 @@ const router = createRouter({
     component: FormulaireProupdate
    },
 
-   {
-    path:'/Professionnel/Listeprestation',
-    name:'ListeprestationPro',
-    component: ListeprestationPro
-   },
+  //  {
+  //   path:'/Professionnel/Listeprestation',
+  //   name:'ListeprestationPro',
+  //   component: ListeprestationPro
+  //  },
    {
     path: '/professionnel/:id',
     name: 'DetailPro',
@@ -117,11 +117,7 @@ const router = createRouter({
     component: Inscription
    },
 
-   {
-    path:'/Home/Client/ListePrestations',
-    name: 'ListePrestations',
-    component: ListePrestations
-   },
+
    {
     path: '/Home/Client/Planification',
     name:'Planification',
