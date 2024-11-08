@@ -4,7 +4,7 @@
       <div class="row">
         <!-- Section logo et description -->
         <div class="col-lg-3 col-md-6 mb-4">
-          <img src="/home/ndongba/app_beautyFront/src/assets/images/Black Yellow Illustration Beauty and Spa  Logo 1.svg" alt="Logo" class="img-fluid mb-3">
+          <img src="@/assets/images/Black Yellow Illustration Beauty and Spa  Logo 1.svg" alt="Logo" class="img-fluid mb-3">
           <p>Prenez soin de vous en toute simplicité. <br>Réservez, gérez vos rendez-vous,<br> et découvrez les meilleurs professionnels <br>de la beauté près de chez vous.<br> Votre bien-être est notre priorité.</p>
         </div>
         <!-- Section A Propos -->

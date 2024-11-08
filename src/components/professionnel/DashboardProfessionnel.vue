@@ -3,12 +3,12 @@
         <div class="container">
             <div class="navigation">
                 <aside class="sidebar">
-                    <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/Black Yellow Illustration Beauty and Spa  Logo 1.svg" alt="" id="logo">
+                    <img src="@/assets/professionnel/Black Yellow Illustration Beauty and Spa  Logo 1.svg" alt="" id="logo">
                     <ul>
                         <li>
                             <a href="/Professionnel/Acceuil">
                                 <span class="icon">
-                                    <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/ic_baseline-home.svg" alt="">
+                                    <img src="@/assets/professionnel/ic_baseline-home.svg" alt="">
                                 </span>
                                 <span class="title">Acceuil</span>
                             </a>
@@ -16,7 +16,7 @@
                         <li>
                             <a href="/Professionnel/Rendez-vous">
                                 <span class="icon">
-                                    <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/ph_calendar.svg" alt="">
+                                    <img src="@/assets/professionnel/ph_calendar.svg" alt="">
                                 </span>
                                 <span class="title">Rendez-Vous</span>
                             </a>
@@ -24,7 +24,7 @@
                         <li>
                             <a href="/Professionnel/Client">
                                 <span class="icon">
-                                    <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/Vector.svg" alt="">
+                                    <img src="@/assets/professionnel/Vector.svg" alt="">
                                 </span>
                                 <span class="title">Clients</span>
                             </a>
@@ -32,20 +32,20 @@
                         <li>
                             <a href="#">
                                 <span class="icon">
-                                    <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/tdesign_money.svg" alt="">
+                                    <img src="@/assets/professionnel/tdesign_money.svg" alt="">
                                 </span>
                                 <span class="title">Paiements</span>
                             </a>
                         </li>
                         <li>
                             <span class="icon">
-                                <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/bi_book.svg" alt="">
+                                <img src="@/assets/professionnel/bi_book.svg" alt="">
                             </span>
                             <span class="title">Catalogue</span>
                             <a href="#"> 
                                 <div>
                                     <span class="icon">
-                                        <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/simple-icons_producthunt.svg" alt="">
+                                        <img src="@/assets/professionnel/simple-icons_producthunt.svg" alt="">
                                     </span>
                                     <span class="title">Produits</span>
                                 </div>
@@ -53,7 +53,7 @@
                             <a href="/Professionnel/Prestation">   
                                 <div>
                                     <span class="icon">
-                                        <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/map_beauty-salon _1.svg">
+                                        <img src="@/assets/professionnel/map_beauty-salon _1.svg">
                                     </span>
                                     <span class="title">Prestations</span>
                                 </div>
@@ -62,7 +62,7 @@
                         <li>
                             <a href="#">
                                 <span class="icon">
-                                    <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/bag-2.svg" alt="">
+                                    <img src="@/src/assets/professionnel/bag-2.svg" alt="">
                                 </span>
                                 <span class="title">Ventes</span>
                             </a>
@@ -70,7 +70,7 @@
                         <li>
                             <a href="#">
                                 <span class="icon">
-                                    <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/material-symbols_settings.svg" alt="">
+                                    <img src="@/assets/professionnel/material-symbols_settings.svg" alt="">
                                 </span>
                                 <span class="title">Settings</span>
                             </a>
@@ -79,7 +79,7 @@
                         <li>
                             <a href="#" @click="handleLogout">
                                 <span class="icon">
-                                    <img src="/home/ndongba/app_beautyFront/src/assets/professionnel/ion_log-out-outline.svg" alt="">
+                                    <img src="@/assets/professionnel/ion_log-out-outline.svg" alt="">
                                 </span>
                                 <span class="title">Sign out</span>
                             </a>
