@@ -6,6 +6,7 @@
       </div>
       <div class="form">
         <h1 id="titre">Connectez-vous</h1>
+        <div class="form1" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Email</label>
           <input type="email" class="form-control" id="input" aria-describedby="emailHelp" v-model="credentials.email" placeholder="Entrer votre email">
@@ -22,6 +23,7 @@
         <p id="inscrire">Vous n'avez-pas de compte 
           <a href="/Home/Inscription">S'inscrire</a>
         </p>
+      </div>
       </div>
     </div>
   </main>
@@ -112,7 +114,7 @@ async function performLogin() {
 #input {
   width: 650px;
   height: 50px;
-  font-size: 30px;
+  font-size: 20px;
   border-radius: 10px;
 }
 
@@ -121,7 +123,7 @@ async function performLogin() {
 }
 
 label {
-  font-size: 32px;
+  font-size: 21px;
   margin-top: 50px;
 }
 
@@ -133,7 +135,7 @@ label {
 #button {
   width: 650px;
   height: 50px;
-  font-size: 30px;
+  font-size: 20px;
   border-radius: 10px;
   margin-top: 100px;
   background-color: #ffcdb3;
@@ -142,7 +144,7 @@ label {
 #input2{
   width: 650px;
   height: 50px;
-  font-size: 30px;
+  font-size: 20px;
   border-radius: 10px;
 }
 
@@ -156,6 +158,17 @@ label {
   color: red;
 }
 
+.form{
+  margin-top: 50px;
+  margin-left: 70px;
+}
+
+.form1{
+  margin-top: 50px;
+  
+ padding: 30px;
+ border-radius: 30px;
+}
 @media screen and (max-width: 420px) {
   .principal{
     display: block;
@@ -166,13 +179,12 @@ label {
   }
 
   #input{
-    width: 350px;
-    margin-left: 25px;
+    width: 250px;
     font-size: 21px;
   }
 
   #input2{
-    width: 350px;
+    width: 250px;
     margin-left: 25px;
     font-size: 21px;
   }
@@ -183,7 +195,7 @@ label {
   }
 
   #button{
-    width: 350px;
+    width: 250px;
     margin-top: 50px;
     margin-left: 25px;
     font-size: 21px;

@@ -185,6 +185,7 @@ import BarreRecherche from "../../components/commun/BarreRecherche.vue";
   <style scoped>
   main {
     padding: 20px;
+    margin: 30px;
   }
 
   .banniere{

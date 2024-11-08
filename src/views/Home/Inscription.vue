@@ -17,42 +17,45 @@
       <!-- Formulaire d'inscription Client -->
       <form v-if="user.role === 'client'">
         <h2>Pour les clients</h2>
-        <p id="para">Créez un compte ou connectez-vous pour réserver et gérer vos rendez-vous.</p>
+        <p id="para">Créez un compte et connectez-vous pour réserver et gérer vos rendez-vous.</p>
+        <div class="formclient" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
         <div class="mb-3">
           <label for="input-name" class="form-label">Nom</label>
-          <input type="text" class="form-control" placeholder="Entrer votre nom et votre Prénom" v-model="user.name" id="input" required>
+          <input type="text" class="form-control" placeholder="Entrer votre nom et votre Prénom" v-model="user.name" id="input1" required>
           <div v-if="errors.name" class="text-danger">{{ errors.name }}</div>
         </div>
         <div class="mb-3">
           <label for="input-address" class="form-label">Adresse</label>
-          <input type="text" class="form-control" placeholder="Entrez votre adresse" v-model="user.adresse" id="input" required>
+          <input type="text" class="form-control" placeholder="Entrez votre adresse" v-model="user.adresse" id="input1" required>
           <div v-if="errors.adresse" class="text-danger">{{ errors.adresse }}</div>
         </div>
         <div class="mb-3">
           <label for="input-address" class="form-label">Téléphone</label>
-          <input type="number" class="form-control" v-model="user.telephone" id="input" placeholder="Entrer votre numéro de téléphone" required>
+          <input type="number" class="form-control" v-model="user.telephone" id="input1" placeholder="Entrer votre numéro de téléphone" required>
           <div v-if="errors.telephone" class="text-danger">{{ errors.telephone }}</div>
         </div>
         <div class="mb-3">
           <label for="input-email" class="form-label">Email</label>
-          <input type="email" class="form-control" v-model="user.email" placeholder="Veuillez entrer votre Email" id="input" required>
+          <input type="email" class="form-control" v-model="user.email" placeholder="Veuillez entrer votre Email" id="input1" required>
           <div v-if="errors.email" class="text-danger">{{ errors.email }}</div>
         </div>
         <div class="mb-3">
           <label for="input-password" class="form-label">Mot de Passe</label>
-          <input type="password" class="form-control" v-model="user.password" id="input" placeholder="Entrer votre mot de passe" required>
+          <input type="password" class="form-control" v-model="user.password" id="input1" placeholder="Entrer votre mot de passe" required>
           <div v-if="errors.password" class="text-danger">{{ errors.password }}</div>
         </div>
         <div class="navigation-buttons">
           <button type="button" class="btn btn-primary" @click="validateClientForm">S'inscrire</button>
         </div>
+      </div>
       </form>
 
       <!-- Formulaire d'inscription Professionnel avec étapes -->
       <form v-if="user.role === 'professionnel'">
         <div v-if="currentStep === 1">
           <h2>Pour les professionnels</h2>
-          <p>Créez un compte ou connectez-vous pour gérer votre entreprise.</p>
+          <p>Créez un compte et connectez-vous pour gérer votre entreprise.</p>
+          <div class="formpro" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
           <div class="mb-3">
             <label for="input-email" class="form-label">Email</label>
             <input type="email" class="form-control" v-model="user.email" placeholder="Veuillez entrer votre Email" id="input" required>
@@ -96,6 +99,7 @@
           <div class="navigation-buttons">
             <button type="button" class="btn btn-primary" @click="validateProfessionalForm">Suivant</button>
           </div>
+        </div>
         </div>
 
         <div v-if="currentStep === 2">
@@ -283,8 +287,26 @@ const register = async () => {
 .time-select{
   display: flex;
 }
+
+.formclient{
+  padding: 40px;
+ border-radius: 30px;
+}
+
+.formpro{
+  padding: 40px;
+  border-radius: 30px;
+  
+}
+
+#input1{
+   width: 550px;
+  height: 50px;
+  font-size: 21px;
+  border-radius: 10px;
+}
   #input {
-  width: 650px;
+  width: 550px;
   height: 50px;
   font-size: 21px;
   border-radius: 10px;
@@ -344,7 +366,7 @@ input[type="checkbox"] {
 }
 
 #role{
-  font-size: 28px;
+  font-size: 20px;
 }
 .prestations-list {
   display: flex;
@@ -415,7 +437,7 @@ main{
   }
 
   #input{
-    width: 320px;
+    width: 300px;
     font-size: 21px;
   }
 
@@ -430,6 +452,20 @@ main{
 }
 #role{
   font-size: 24px;
+}
+
+/* .formpro{
+  width: 22rem;
+  padding: 40px;
+  border-radius: 30px;
+ 
+  
+} */
+#input1{
+   width: 250px;
+  height: 50px;
+  font-size: 21px;
+  border-radius: 10px;
 }
 
 
