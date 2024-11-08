@@ -4,7 +4,7 @@
   <div class="container-fluid">
     <div>
    
-    <img src="/home/ndongba/app_beautyFront/src/assets/images/Black Yellow Illustration Beauty and Spa  Logo 1.svg">
+    <img src="@/assets/images/Black Yellow Illustration Beauty and Spa  Logo 1.svg">
     <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button> -->
@@ -49,6 +49,7 @@
 
   .container-fluid{
     gap: 600px;
+    margin-left: 30px;
   }
   
   nav ul {
