@@ -189,7 +189,7 @@ import BarreRecherche from "../../components/commun/BarreRecherche.vue";
   }
 
   .banniere{
-    background: url('/home/ndongba/app_beautyFront/src/assets/images/Acceuil1.png');
+    background: url('@/assets/images/Acceuil1.png');
     background-repeat: no-repeat;
     background-position-x: right;
    height: 600px;
