@@ -5,7 +5,7 @@
         <img src="@/assets/client/surprised-african-woman-covering-her-mouth-by-hand-while-looking-smartphone-screen.svg" id="image">
       </div>
       <div class="form">
-        <h1 id="titre">Connectez-vous</h1>
+        <h3 id="titre">Connectez-vous</h3>
         <div class="form1" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Email</label>

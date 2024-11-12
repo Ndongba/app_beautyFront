@@ -368,7 +368,7 @@ import BarreRecherche from "../../components/commun/BarreRecherche.vue";
    }
 
    #iframe{
-    width: 370px;
+    width: 300px;
    }
 }
   </style>

@@ -127,11 +127,31 @@ export default {
     
 } */
 
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    /* padding: 10px 20px; */
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #9C6C76; /* Changez cette couleur selon vos préférences */
+    color: #fff;
+}
+
+.sidebar ul li a.active {
+    background-color: #8A5C64; /* Changez cette couleur pour l'élément actif */
+    color: #fff;
+    font-weight: bolder;
+}
+
+
 .sidebar{
     width: 400px;
     background:#B4838D;
     color: #fff;
-    padding: 20px;
+    /* padding: 20px; */
     display: flex;
     flex-direction: column;  
     height: 1180px; 

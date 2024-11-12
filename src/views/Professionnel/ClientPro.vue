@@ -54,10 +54,16 @@
                     <td>770000000</td>
                     <td>5</td>
                     <td>21/08/2024</td>
-                    <td>   
-                        <button>Voir detail</button>
-                        <button>Modifier</button>
-                        <button>Supprimer</button>
+                    <td>
+                        <button>
+                            <i class="bi bi-eye"></i>
+                        </button>
+                        <button>
+                            <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
+                        </button>
+                        <button>
+                            <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
+                        </button>
                     </td>
                 </tr>
                 <tr>
@@ -68,10 +74,16 @@
                     <td>770000000</td>
                     <td>5</td>
                     <td>21/08/2024</td>
-                    <td>   
-                        <button>Voir detail</button>
-                        <button>Modifier</button>
-                        <button>Supprimer</button>
+                    <td>
+                        <button>
+                            <i class="bi bi-eye"></i>
+                        </button>
+                        <button>
+                            <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
+                        </button>
+                        <button>
+                            <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
+                        </button>
                     </td>
                 </tr>
                 <tr>
@@ -82,10 +94,16 @@
                     <td>770000000</td>
                     <td>5</td>
                     <td>21/08/2024</td>
-                    <td>   
-                        <button>Voir detail</button>
-                        <button>Modifier</button>
-                        <button>Supprimer</button>
+                    <td>
+                        <button>
+                            <i class="bi bi-eye"></i>
+                        </button>
+                        <button>
+                            <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
+                        </button>
+                        <button>
+                            <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
+                        </button>
                     </td>
                 </tr>
                 <tr>
@@ -96,10 +114,16 @@
                     <td>770000000</td>
                     <td>5</td>
                     <td>21/08/2024</td>
-                    <td>   
-                        <button>Voir detail</button>
-                        <button>Modifier</button>
-                        <button>Supprimer</button>
+                    <td>
+                        <button>
+                            <i class="bi bi-eye"></i>
+                        </button>
+                        <button>
+                            <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
+                        </button>
+                        <button>
+                            <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
+                        </button>
                     </td>
                 </tr>
                 <tr>
@@ -110,10 +134,16 @@
                     <td>770000000</td>
                     <td>5</td>
                     <td>21/08/2024</td>
-                    <td>   
-                        <button>Voir detail</button>
-                        <button>Modifier</button>
-                        <button>Supprimer</button>
+                    <td>
+                        <button>
+                            <i class="bi bi-eye"></i>
+                        </button>
+                        <button>
+                            <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
+                        </button>
+                        <button>
+                            <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
+                        </button>
                     </td>
                 </tr>
                 <tr>
@@ -124,10 +154,16 @@
                     <td>770000000</td>
                     <td>5</td>
                     <td>21/08/2024</td>
-                    <td>   
-                        <button>Voir detail</button>
-                        <button>Modifier</button>
-                        <button>Supprimer</button>
+                    <td>
+                        <button>
+                            <i class="bi bi-eye"></i>
+                        </button>
+                        <button>
+                            <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
+                        </button>
+                        <button>
+                            <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
+                        </button>
                     </td>
                 </tr>
                
@@ -175,7 +211,7 @@
     flex: 1; /* Prend tout l'espace restant */
     padding: 20px;
     background-color: #f5f5f5; /* Couleur de fond pour différencier le contenu */
-    font-size: 32px;
+    font-size: 21px;
   }
   
   #search{
