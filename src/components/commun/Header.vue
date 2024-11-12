@@ -46,11 +46,11 @@
     color: #fff;
     padding: 15px;
   }
-
+/* 
   .container-fluid{
     gap: 600px;
     margin-left: 30px;
-  }
+  } */
   
   nav ul {
     list-style-type: none;
@@ -93,6 +93,7 @@
   .container-fluid {
     gap: 10px;
   }
+
 }
   </style>
   

@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Acceuil from '@/views/Home/Acceuil.vue'
-import Header from '@/components/commun/Header.vue'
-import Footer from '@/components/commun/Footer.vue'
 import Client from '@/views/Home/Client.vue'
 import Professionnel from '@/views/Home/Professionnel.vue'
 import AcceuilPro from '@/views/Professionnel/AcceuilPro.vue'
@@ -10,21 +8,14 @@ import ClientPro from '@/views/Professionnel/ClientPro.vue'
 import PrestationPro from '@/views/Professionnel/PrestationPro.vue'
 import FormulairePro from '@/views/Professionnel/FormulairePro.vue'
 import FormulaireProupdate from '@/views/Professionnel/FormulaireProupdate.vue'
-
 import LoginClient from '@/views/Home/Login.vue'
 import AcceuilClient from '@/views/Client/AcceuilClient.vue'
-import DetailPro from '@/views/Client/DetailPro.vue'
 import Inscription from '@/views/Home/Inscription.vue'
-
 import Planification from '@/views/Client/Planification.vue'
 import Rendezvous from '@/views/Client/Rendezvous.vue'
 
 
 
-// const routes = [
-//   { path: '/Acceuil/Authchoice', component: AuthChoice },
-  
-// ];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -79,22 +70,13 @@ const router = createRouter({
     name:'ProfessionnelProupdate',
     component: FormulaireProupdate
    },
-
-  //  {
-  //   path:'/Professionnel/Listeprestation',
-  //   name:'ListeprestationPro',
-  //   component: ListeprestationPro
-  //  },
-   {
+  {
     path: '/professionnel/:id',
     name: 'DetailPro',
     component: () => import('@/views/Client/DetailPro.vue'),
     props: true
   },
-  
-
- 
-   {
+  {
     path:'/Home/Login',
     name:'LoginClient',
     component: LoginClient

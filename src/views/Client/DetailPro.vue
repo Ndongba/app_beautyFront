@@ -37,12 +37,11 @@
     <div class="class">
       <h1>{{ professionnel?.nom }}</h1>
       <h3>Liste des Prestations</h3>
-      <h3>Choisir le ou les Prestations Souhaitées</h3>
+      <h3>Choisir la Prestation Souhaitée</h3>
 
       <div class="block2">
         <div class="block2_1">
-        
-          <div style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"
+        <div style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"
           v-for="prestation in prestations"
             :key="prestation.id"
             class="Prestation"
@@ -89,14 +88,7 @@
         </div>
       </div>
 
-       <!-- <div>
-        <h2>Description</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dicta sint consequuntur repudiandae veritatis dolore...
-        </p>
-      </div>  -->
-      
-      <div class="disponibilites-section">
+    <div class="disponibilites-section">
         <h2>Horaires</h2>
         <div v-if="disponibilites.length > 0">
           <div v-for="disponibilite in disponibilites" :key="disponibilite.id" class="Jour">
@@ -347,21 +339,7 @@ p{
     height: auto;
   }
 
-  .block2 {
-    flex-direction: column;
-    gap: 20px;
-    width: 200px;
-    
-    
-  }
 
-  .block2_1 .card {
-    width: 50px;
-  }
-
-  .block2 .card{
-    width: 50px;
-  }
   .btn {
     width: 40%;
     text-align: center;
@@ -390,13 +368,28 @@ p{
     border-radius: 6px;
   }
 
- 
+  .block2 {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
 
+  .block2_1 {
+    width: 100%;
+    gap: 15px;
+  }
+
+  .Prestation {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 12px;
+    border-radius: 8px;
+  }
+
+  .card {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+  }
  
 }
-
-
-
-
-
 </style>
