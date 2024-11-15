@@ -87,12 +87,12 @@
             <div v-if="errors.images" class="text-danger">{{ errors.images }}</div>
           </div>
           <div class="mb-3">
-            <label for="formFile" class="form-label">REGISTRE DE COMMERCE</label>
+            <label for="formFile" class="form-label">Registre de Commerce</label>
             <input class="form-control" type="file" @change="handleFileUpload($event, 'registre_commerce')" id="input2" required>
             <div v-if="errors.registre_commerce" class="text-danger">{{ errors.registre_commerce }}</div>
           </div>
           <div class="mb-3">
-            <label for="formFile" class="form-label">NINEA</label>
+            <label for="formFile" class="form-label">Ninea</label>
             <input class="form-control" type="file" @change="handleFileUpload($event, 'ninea')" id="input2" required>
             <div v-if="errors.ninea" class="text-danger">{{ errors.ninea }}</div>
           </div>
@@ -152,50 +152,85 @@ const user = ref({
 const errors = ref({});
 
 // Validation des formulaires
+// const validateClientForm = () => {
+//   errors.value = {};
+//   if (!user.value.name) errors.value.name = 'Nom est requis.';
+//   if (!user.value.adresse) errors.value.adresse = 'Adresse est requise.';
+//   if (!user.value.telephone) {
+//     errors.value.telephone = 'Téléphone est requis.';
+//   } else if (!/^\+?[1-9]\d{1,10}$/.test(user.value.telephone)) {
+//     errors.value.telephone = 'Numéro de téléphone invalide.';
+//   }
+//   if (!user.value.email) {
+//     errors.value.email = 'Email est requis.';
+//   } else if (!/\S+@\S+\.\S+/.test(user.value.email)) {
+//     errors.value.email = 'Email invalide.';
+//   }
+//   if (!user.value.password) errors.value.password = 'Mot de passe est requis.';
+
+//   if (Object.keys(errors.value).length === 0) {
+//     register();
+//   }
+// };
+
 const validateClientForm = () => {
   errors.value = {};
+
+  // Vérification des champs requis
   if (!user.value.name) errors.value.name = 'Nom est requis.';
   if (!user.value.adresse) errors.value.adresse = 'Adresse est requise.';
+
+  // Validation du téléphone
   if (!user.value.telephone) {
     errors.value.telephone = 'Téléphone est requis.';
   } else if (!/^\+?[1-9]\d{1,14}$/.test(user.value.telephone)) {
     errors.value.telephone = 'Numéro de téléphone invalide.';
   }
+
+  // Validation de l'email
   if (!user.value.email) {
     errors.value.email = 'Email est requis.';
-  } else if (!/\S+@\S+\.\S+/.test(user.value.email)) {
+  } else if (!/^\S+@\S+\.\S+$/.test(user.value.email)) {
     errors.value.email = 'Email invalide.';
   }
-  if (!user.value.password) errors.value.password = 'Mot de passe est requis.';
 
+  // Validation du mot de passe
+  if (!user.value.password) {
+    errors.value.password = 'Mot de passe est requis.';
+  } else if (user.value.password.length < 8) {
+    errors.value.password = 'Mot de passe doit contenir au moins 8 caractères.';
+  }
+
+  // Soumission du formulaire si aucune erreur
   if (Object.keys(errors.value).length === 0) {
     register();
   }
 };
 
-const validateProfessionalForm = () => {
-  errors.value = {};
-  if (!user.value.name) errors.value.name = 'Nom de l\'entreprise est requis.';
-  if (!user.value.adresse) errors.value.adresse = 'Adresse est requise.';
-  if (!user.value.telephone) {
-    errors.value.telephone = 'Téléphone est requis.';
-  } else if (!/^\+?[1-9]\d{1,14}$/.test(user.value.telephone)) {
-    errors.value.telephone = 'Numéro de téléphone invalide.';
-  }
-  if (!user.value.email) {
-    errors.value.email = 'Email est requis.';
-  } else if (!/\S+@\S+\.\S+/.test(user.value.email)) {
-    errors.value.email = 'Email invalide. ';
-  }
-  if (!user.value.password) errors.value.password = 'Mot de passe est requis.';
-  if (!user.value.registre_commerce) errors.value.registre_commerce = 'Le registre de commerce est requis.';
-  if (!user.value.ninea) errors.value.ninea = 'Le numéro NINEA est requis.';
-  if (!user.value.images.length) errors.value.images = 'Au moins une image est requise.';
 
-  if (Object.keys(errors.value).length === 0) {
-    nextStep();
-  }
-};
+ const validateProfessionalForm = () => {
+   errors.value = {};
+   if (!user.value.name) errors.value.name = 'Nom de l\'entreprise est requis.';
+   if (!user.value.adresse) errors.value.adresse = 'Adresse est requise.';
+   if (!user.value.telephone) {
+     errors.value.telephone = 'Téléphone est requis.';
+   } else if (!/^\+?[1-9]\d{1,14}$/.test(user.value.telephone)) {
+     errors.value.telephone = 'Numéro de téléphone invalide.';
+   }
+   if (!user.value.email) {
+     errors.value.email = 'Email est requis.';
+   } else if (!/\S+@\S+\.\S+/.test(user.value.email)) {
+     errors.value.email = 'Email invalide. ';
+   }
+   if (!user.value.password) errors.value.password = 'Mot de passe est requis.';
+   if (!user.value.registre_commerce) errors.value.registre_commerce = 'Le registre de commerce est requis.';
+   if (!user.value.ninea) errors.value.ninea = 'Le numéro NINEA est requis.';
+   if (!user.value.images.length) errors.value.images = 'Au moins une image est requise.';
+
+   if (Object.keys(errors.value).length === 0) {
+     nextStep();
+   }
+ };
 
 const handleRoleChange = () => {
   user.value.name = '';
@@ -247,7 +282,8 @@ const register = async () => {
   // Suppression de user.value.registre_commerce et user.value.ninea
   formData.append('registre_commerce', user.value.registre_commerce);
   formData.append('ninea', user.value.ninea);
-
+  console.log(formData);
+  
   try {
     const response = await fetch(`${apiUrl}register`, {
       method: 'POST',
@@ -257,7 +293,7 @@ const register = async () => {
       // Inscription réussie
       const data = await response.json();
       console.log(data);
-      router.push('/'); // Redirection après l'inscription
+      router.push('/Home/Login'); // Redirection après l'inscription
     } else {
       // Gérer les erreurs ici
       console.error('Erreur lors de l\'inscription', response);
@@ -422,6 +458,12 @@ main{
   font-size: 20px;
   color: red; /* Couleur rouge pour les messages d'erreur */
   margin-top: 5px; /* Espacement au-dessus des messages d'erreur */
+}
+
+@media screen and (max-width: 768px) {
+  main{
+    display: block;
+  }
 }
 
 @media screen and (max-width: 420px) {

@@ -2,181 +2,119 @@
     <div class="dashboard-layout">
       <!-- Sidebar -->
       <aside class="sidebar">
-        
-          <DashboardProfessionnel/>
-        
+        <DashboardProfessionnel />
       </aside>
   
       <!-- Contenu principal -->
-      
       <main class="main-content">
-        
-        
-  <div>
- 
-    <div class="recherche">
         <div>
-            <input type="search" name="search" id="search" placeholder="Rechercher">
+          <div class="recherche">
+            <div>
+              <input type="search" name="search" id="search" placeholder="Rechercher" v-model="searchQuery" />
+            </div>
+            <div>
+              <input type="text" id="filter" name="filter" placeholder="Filtrer" v-model="filterQuery" />
+            </div>
+            <div>
+              <img src="@/assets/professionnel/filter 1.svg" alt="Filter icon" />
+            </div>
+          </div>
+          <div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>N°</th>
+                  <th>Client</th>
+                  <th>Prestation Choisie</th>
+                  <th>Date Prévue</th>
+                  <th>Prix</th>
+                  <th>Statut</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(reservation, index) in filterReservations()" :key="reservation.id">
+                  <td>{{ index + 1 }}</td>
+                  <td>{{ reservation.client_nom }}</td>
+                  <td>{{ reservation.prestation_libelle }}</td>
+                  <td>{{ reservation.date_prévue }}</td>
+                  <td>{{ reservation.montant }}</td>
+                  <td>{{ reservation.status }}</td>
+                  <td>
+                    <button>
+                      <i class="bi bi-eye"></i>
+                    </button>
+                    <button @click="openEditModal(reservation)">
+                      <i class="bi bi-pencil"></i>
+                    </button>
+                    <button @click="cancelReservation(reservation.id)">
+                      <i class="bi bi-trash3-fill"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div>
-            <input type="text" id="filter" name="filter" placeholder="Filtrer">
-        </div>
-        <div>
-            <img src="@/assets/professionnel/filter 1.svg">
-        </div>
-    </div>
-    <div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>N°</th>
-                    <th>Client</th>
-                    <th>Prestation Choisie</th>
-                    <th>Date Prévue</th>
-                    <th>Durée</th>
-                    <th>Prix</th>
-                    <th>Statut</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Bassine NIANG</td>
-                    <td>Torsade</td>
-                    <td>12/10/2024</td>
-                    <td>1h30</td>
-                    <td>15 000</td>
-                    <td>Reservé</td>
-                    <td>
-                        <button>
-                            <i class="bi bi-eye"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Bassine NIANG</td>
-                    <td>12/05/2024</td>
-                    <td>12/10/2024</td>
-                    <td>1h30</td>
-                    <td>15 000</td>
-                    <td>Reservé</td>
-                    <td>
-                        <button>
-                            <i class="bi bi-eye"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Bassine NIANG</td>
-                    <td>12/05/2024</td>
-                    <td>12/10/2024</td>
-                    <td>1h30</td>
-                    <td>15 000</td>
-                    <td>Reservé</td>
-                    <td>
-                        <button>
-                            <i class="bi bi-eye"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Bassine NIANG</td>
-                    <td>12/05/2024</td>
-                    <td>12/10/2024</td>
-                    <td>1h30</td>
-                    <td>15 000</td>
-                    <td>Reservé</td>
-                    <td>
-                        <button>
-                            <i class="bi bi-eye"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Bassine NIANG</td>
-                    <td>12/05/2024</td>
-                    <td>12/10/2024</td>
-                    <td>1h30</td>
-                    <td>15 000</td>
-                    <td>Reservé</td>
-                    <td>
-                        <button>
-                            <i class="bi bi-eye"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Bassine NIANG</td>
-                    <td>12/05/2024</td>
-                    <td>12/10/2024</td>
-                    <td>1h30</td>
-                    <td>15 000</td>
-                    <td>Reservé</td>
-                    <td>
-                        <button>
-                            <i class="bi bi-eye"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-  </div>
-        
       </main>
     </div>
   </template>
   
   <script>
   import DashboardProfessionnel from "../../components/professionnel/DashboardProfessionnel.vue";
-  
+  import { getReservationsByProfessionnel } from "@/services/Reservation"; // Assurez-vous d'utiliser le bon chemin
   
   export default {
     name: "AccueilPro",
     components: {
-      DashboardProfessionnel
+      DashboardProfessionnel,
+    },
+    data() {
+      return {
+        reservations: [],
+        searchQuery: "",
+        filterQuery: "",
+      };
+    },
+    async created() {
+      await this.fetchReservations(); // Récupérer les réservations au chargement du composant
+    },
+    methods: {
+      async fetchReservations() {
+        try {
+          // Appeler la méthode pour récupérer toutes les réservations du professionnel
+          const response = await getReservationsByProfessionnel();
+          this.reservations = response; // Stocke les réservations récupérées
+        } catch (error) {
+          console.error("Erreur lors de la récupération des réservations:", error);
+        }
+      },
+      filterReservations() {
+        // Filtrer les réservations en fonction des critères de recherche
+        return this.reservations.filter((reservation) => {
+          const matchesSearch = reservation.client_nom
+            .toLowerCase()
+            .includes(this.searchQuery.toLowerCase());
+          const matchesFilter = reservation.prestation_libelle
+            .toLowerCase()
+            .includes(this.filterQuery.toLowerCase());
+          return matchesSearch && matchesFilter;
+        });
+      },
+      openEditModal(reservation) {
+        console.log("Édition de la réservation :", reservation);
+      },
+      async cancelReservation(reservationId) {
+        try {
+          // Supposons que vous avez une méthode pour supprimer une réservation
+          await deleteReservation(reservationId);
+          this.reservations = this.reservations.filter(
+            (res) => res.id !== reservationId
+          );
+        } catch (error) {
+          console.error("Erreur lors de la suppression de la réservation:", error);
+        }
+      },
     },
   };
   </script>
@@ -184,50 +122,42 @@
   <style scoped>
   /* Disposition de la page */
   .dashboard-layout {
-    display: flex; /* Utilisation de flexbox pour créer un layout à deux colonnes */
-   /* height: 100vh; /* Prend la hauteur de la fenêtre */
-   
+    display: flex;
   }
   
   /* Styles de la sidebar */
   .sidebar {
     width: 350px;
-    background-color:#B4838D; /* Couleur de fond sombre */
-    color: #fff; /* Couleur de texte */
-   font-size: 21px;
-   /* box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Ajout d'une ombre à droite de la sidebar */
-  }
-  
-  
-  
-  /* Contenu principal */
-  .main-content {
-    flex: 1; /* Prend tout l'espace restant */
-    padding: 20px;
-    background-color: #f5f5f5; /* Couleur de fond pour différencier le contenu */
+    background-color: #b4838d;
+    color: #fff;
     font-size: 21px;
   }
   
-  .table{
-    width: 100%;
-
+  /* Contenu principal */
+  .main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f5f5f5;
+    font-size: 21px;
   }
   
-  .recherche{
+  .table {
+    width: 100%;
+  }
+  
+  .recherche {
     display: flex;
     gap: 30px;
-    
   }
-
-  #search{
+  
+  #search {
     width: 750px;
     height: 75px;
     border-radius: 20px;
     font-size: 32px;
-
   }
   
-  #filter{
+  #filter {
     width: 150px;
     height: 70px;
     border-radius: 20px;

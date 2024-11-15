@@ -2,193 +2,107 @@
     <div class="dashboard-layout">
       <!-- Sidebar -->
       <aside class="sidebar">
-        
-          <DashboardProfessionnel/>
-        
+        <DashboardProfessionnel />
       </aside>
   
       <!-- Contenu principal -->
-      
       <main class="main-content">
-        
-        
-  <div>
- 
-    <div class="recherche">
         <div>
-            <input type="search" name="search" id="search" placeholder="Rechercher">
+          <div class="recherche">
+            <div>
+              <input type="search" name="search" id="search" placeholder="Rechercher" />
+            </div>
+            <div>
+              <input type="text" id="filter" name="filter" placeholder="Filtrer" />
+            </div>
+            <div>
+              <img src="@/assets/professionnel/filter 1.svg" />
+            </div>
+            <div>
+              <button>Options</button>
+            </div>
+            <div>
+              <button>Ajouter un client</button>
+            </div>
+          </div>
+          <div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>N°</th>
+                  <th>Noms</th>
+                  <th>Email</th>
+                  <th>Telephone</th>
+                  <th>Nbre de Rendez-vous</th>
+                  <th>Dernier RV</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(reservation, index) in reservations" :key="reservation.id">
+                  <td>{{ index + 1 }}</td>
+                  <td>{{ reservation.client_name }}</td>
+                  <td>{{ reservation.client_email }}</td>
+                  <td>{{ reservation.client_phone }}</td>
+                  <td>{{ reservation.num_appointments }}</td>
+                  <td>{{ reservation.last_appointment }}</td>
+                  <td>
+                    <button>
+                      <i class="bi bi-eye"></i>
+                    </button>
+                    <button>
+                      <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
+                    </button>
+                    <button>
+                      <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div>
-            <input type="text" id="filter" name="filter" placeholder="Filtrer">
-        </div>
-        <div>
-            <img src="@/assets/professionnel/filter 1.svg">
-        </div>
-        <div>
-            <button>Options</button>
-        </div>
-        <div>
-            <button>Ajouter un client</button>
-        </div>
-    </div>
-    <div>
-        <table class="table">
-            
-            <thead>
-                <tr>
-                    <th>N°</th>
-                    <th>Noms</th>
-                    <th>Email</th>
-                    <th>Telephone</th>
-                    <th>Nbre de Rendez-vous</th>
-                    <th>Dernier RV</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    
-                    <td>1</td>
-                    <td>Bassine NIANG</td>
-                    <td>niangbassine@example.com</td>
-                    <td>770000000</td>
-                    <td>5</td>
-                    <td>21/08/2024</td>
-                    <td>
-                        <button>
-                            <i class="bi bi-eye"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    
-                    <td>1</td>
-                    <td>Bassine NIANG</td>
-                    <td>niangbassine@example.com</td>
-                    <td>770000000</td>
-                    <td>5</td>
-                    <td>21/08/2024</td>
-                    <td>
-                        <button>
-                            <i class="bi bi-eye"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    
-                    <td>2</td>
-                    <td>Bassine NIANG</td>
-                    <td>niangbassine@example.com</td>
-                    <td>770000000</td>
-                    <td>5</td>
-                    <td>21/08/2024</td>
-                    <td>
-                        <button>
-                            <i class="bi bi-eye"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    
-                    <td>3</td>
-                    <td>Bassine NIANG</td>
-                    <td>niangbassine@example.com</td>
-                    <td>770000000</td>
-                    <td>5</td>
-                    <td>21/08/2024</td>
-                    <td>
-                        <button>
-                            <i class="bi bi-eye"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    
-                    <td>4</td>
-                    <td>Bassine NIANG</td>
-                    <td>niangbassine@example.com</td>
-                    <td>770000000</td>
-                    <td>5</td>
-                    <td>21/08/2024</td>
-                    <td>
-                        <button>
-                            <i class="bi bi-eye"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    
-                    <td>5</td>
-                    <td>Bassine NIANG</td>
-                    <td>niangbassine@example.com</td>
-                    <td>770000000</td>
-                    <td>5</td>
-                    <td>21/08/2024</td>
-                    <td>
-                        <button>
-                            <i class="bi bi-eye"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-pencil" @click="openEditModal(reservation)"></i>
-                        </button>
-                        <button>
-                            <i class="bi bi-trash3-fill" @click="cancelReservation(reservation.id)"></i>
-                        </button>
-                    </td>
-                </tr>
-               
-               
-            </tbody>
-        </table>
-    </div>
-  </div>
-        
       </main>
     </div>
   </template>
   
   <script>
   import DashboardProfessionnel from "../../components/professionnel/DashboardProfessionnel.vue";
+  import { getReservationsByProfessionnel } from "@/services/Reservation"; // Importation de la méthode
   
   export default {
     name: "AccueilPro",
     components: {
-      DashboardProfessionnel
+      DashboardProfessionnel,
+    },
+    data() {
+      return {
+        reservations: [], // Tableau pour stocker les réservations
+      };
+    },
+    async created() {
+      // Récupère les réservations lors de la création du composant
+      try {
+        const reservationsData = await getReservationsByProfessionnel();
+        this.reservations = reservationsData; // Assigne les réservations récupérées à la variable "reservations"
+      } catch (error) {
+        console.error("Erreur lors de la récupération des réservations:", error);
+      }
+    },
+    methods: {
+      openEditModal(reservation) {
+        // Logic to open the edit modal
+        console.log("Edit reservation", reservation);
+      },
+      cancelReservation(id) {
+        // Logic to cancel the reservation
+        console.log("Cancel reservation", id);
+      },
     },
   };
   </script>
-  
-  <style scoped>
+
+<style scoped>
   /* Disposition de la page */
   .dashboard-layout {
     display: flex; /* Utilisation de flexbox pour créer un layout à deux colonnes */

@@ -175,6 +175,9 @@ async finalizeAppointment() {
   </script>
   
   <style scoped>
+  main{
+    margin-bottom: 50px;
+  }
   .block {
     display: flex;
     justify-content: space-around;
@@ -212,7 +215,7 @@ async finalizeAppointment() {
     margin-top: 20px;
   }
 
-  @media (max-width: 480px){
+  @media (max-width: 480px) {
 .block{
   display: block;
 }
@@ -226,6 +229,15 @@ async finalizeAppointment() {
 #carte2{
   width: 250px;
   margin:0 auto;
+}
+
+#date{
+  width: 150px;
+  
+}
+
+h2{
+  text-align: center;
 }
   
 }

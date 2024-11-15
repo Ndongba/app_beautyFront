@@ -169,6 +169,13 @@ label {
  padding: 30px;
  border-radius: 30px;
 }
+
+@media screen and (max-width: 768px) {
+  .principal{
+    display: block;
+  }
+  
+}
 @media screen and (max-width: 420px) {
   .principal{
     display: block;
