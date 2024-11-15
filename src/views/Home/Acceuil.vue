@@ -309,6 +309,36 @@ import BarreRecherche from "../../components/commun/BarreRecherche.vue";
     font-size: 36px;
     margin-top: 20px;
    }
+
+   @media screen and (max-width: 768px) {
+    .client1{
+        display: block;
+    }
+
+    .professionnel1{
+        display: block;
+    }
+
+    .temoignage{
+        display: block;
+        
+    }
+
+    .temoignage1{
+        margin-top: 20px;
+        
+    }
+
+    .contact{
+        display: block;
+    }
+
+    .form{
+        display: block;
+        margin-top: 30px;
+    }
+    
+   }
 @media screen and (max-width: 420px){
     .client1{
         display: block;

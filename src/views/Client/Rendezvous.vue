@@ -152,9 +152,10 @@ table td {
     display: block; /* Allows for better layout control on mobile */
     overflow-x: auto; /* Allows horizontal scrolling */
     white-space: nowrap; /* Prevents wrapping */
-    
+    width: 100%;
   }
 
+  
   thead {
     display: none; /* Hide headers on small screens */
   }

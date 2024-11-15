@@ -8,7 +8,6 @@
       <Footer/>
     </div>
   </template>
-  
   <script>
   import Header from "../../components/commun/Header.vue";
   import Footer from "../../components/commun/Footer.vue";

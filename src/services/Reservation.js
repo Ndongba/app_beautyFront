@@ -25,6 +25,30 @@ export const getReservationById = (id) => {
   });
 };
 
+/**
+ * Fonction pour recuperer la liste des reservations d'un professionnel
+ */
+
+export async function getReservationsByProfessionnel() {
+  try {
+    const response = await axios.get(`${apiUrl}reservations/professionnel`, {
+      headers: {
+        'Authorization': `Bearer ${getAccessToken()}`,
+      },
+    });
+
+    if (response.status === 200) {
+      return response.data; // Retourne les réservations si la requête est réussie
+    } else {
+      console.error('Erreur API:', response.status, response.data);
+      throw new Error('Impossible de récupérer les réservations');
+    }
+  } catch (error) {
+    console.error("Erreur lors de la récupération des réservations :", error);
+    throw error; // Rejette l'erreur pour permettre à l'appelant de la gérer
+  }
+}
+
 // Fonction pour récupérer les réservations d'un client
 export const getClientReservations = () => {
   return axios.get(`${apiUrl}reservations/client`, {

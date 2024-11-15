@@ -93,7 +93,7 @@
 
 <script>
 import { logout } from "@/services/AuthService";
-import { useRouter } from "vue-router"; // Importation du router
+import { useRouter } from "vue-router";
 
 export default {
     name: "Dashboard",
@@ -102,9 +102,7 @@ export default {
 
         const handleLogout = async () => {
             try {
-                // Appel au service pour déconnecter l'utilisateur
                 await logout();
-                // Redirection vers la page de connexion après la déconnexion
                 router.push("/login");
             } catch (error) {
                 console.error("Erreur lors de la déconnexion:", error);
@@ -119,59 +117,48 @@ export default {
 </script>
 
 <style scoped>
-/* .container{
-    background-color: #B4838D;
-    font-size: 36px;
-    width: 400px;
-    height: 1180px;
-    
-} */
-
 .sidebar ul li a {
     display: flex;
     align-items: center;
-    /* padding: 10px 20px; */
     border-radius: 8px;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .sidebar ul li a:hover {
-    background-color: #9C6C76; /* Changez cette couleur selon vos préférences */
+    background-color: #9C6C76;
     color: #fff;
 }
 
 .sidebar ul li a.active {
-    background-color: #8A5C64; /* Changez cette couleur pour l'élément actif */
+    background-color: #8A5C64;
     color: #fff;
     font-weight: bolder;
 }
 
-
-.sidebar{
+.sidebar {
     width: 400px;
-    background:#B4838D;
+    background: #B4838D;
     color: #fff;
-    /* padding: 20px; */
     display: flex;
-    flex-direction: column;  
-    height: 1180px; 
-    font-size: 36px;
+    flex-direction: column;
+    height: 1180px;
+    font-size: 30px;
 }
 
-li{
+li {
     list-style: none;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.title{
+.title {
     color: white;
     margin-bottom: 10px;
 }
 
-#logo{
+#logo {
     margin: 20px 100px;
     width: 180px;
 }
