@@ -311,8 +311,15 @@ import BarreRecherche from "../../components/commun/BarreRecherche.vue";
    }
 
    @media screen and (max-width: 768px) {
+
+    .banniere{
+        background:none;
+    }
+
+ 
     .client1{
         display: block;
+        margin-top: -450px;
     }
 
     .professionnel1{
@@ -342,6 +349,7 @@ import BarreRecherche from "../../components/commun/BarreRecherche.vue";
 @media screen and (max-width: 420px){
     .client1{
         display: block;
+        margin-top: -250px;
     }
 
     .professionnel1{

@@ -314,7 +314,7 @@ p{
 
 /* Responsive design */
 /* Responsive design pour mobile */
-@media (max-width: 480px) {
+@media (max-width: 420px) {
   .images-container {
     padding: 10px;
   }
@@ -326,7 +326,7 @@ p{
 
   .main-image {
     height: 250px;
-    width: 370px;
+    width: 400px;
   }
 
   .secondary-images {
@@ -380,7 +380,7 @@ p{
   }
 
   .Prestation {
-    width: 100%;
+    width: 80%;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 12px;
     border-radius: 8px;
   }

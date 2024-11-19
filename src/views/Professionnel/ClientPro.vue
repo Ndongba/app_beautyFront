@@ -33,9 +33,8 @@
                   <th>Noms</th>
                   <th>Email</th>
                   <th>Telephone</th>
-                  <th>Nbre de Rendez-vous</th>
-                  <th>Dernier RV</th>
-                  <th>Actions</th>
+                  <th>Adresse</th>
+                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -44,8 +43,7 @@
                   <td>{{ reservation.client_name }}</td>
                   <td>{{ reservation.client_email }}</td>
                   <td>{{ reservation.client_phone }}</td>
-                  <td>{{ reservation.num_appointments }}</td>
-                  <td>{{ reservation.last_appointment }}</td>
+                  <td>{{ reservation.client_adresse }}</td>
                   <td>
                     <button>
                       <i class="bi bi-eye"></i>
