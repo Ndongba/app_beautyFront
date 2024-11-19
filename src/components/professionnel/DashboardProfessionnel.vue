@@ -5,14 +5,14 @@
                 <aside class="sidebar">
                     <img src="@/assets/professionnel/Black Yellow Illustration Beauty and Spa  Logo 1.svg" id="logo">
                     <ul>
-                        <li>
+                        <!-- <li>
                             <a href="/Professionnel/Acceuil">
                                 <span class="icon">
                                     <img src="@/assets/professionnel/ic_baseline-home.svg">
                                 </span>
                                 <span class="title">Acceuil</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="/Professionnel/Rendez-vous">
                                 <span class="icon">
@@ -29,16 +29,16 @@
                                 <span class="title">Clients</span>
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="#">
                                 <span class="icon">
                                     <img src="@/assets/professionnel/tdesign_money.svg">
                                 </span>
                                 <span class="title">Paiements</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
-                            <span class="icon">
+                            <!-- <span class="icon">
                                 <img src="@/assets/professionnel/bi_book.svg">
                             </span>
                             <span class="title">Catalogue</span>
@@ -49,8 +49,8 @@
                                     </span>
                                     <span class="title">Produits</span>
                                 </div>
-                            </a>
-                            <a href="/Professionnel/Prestation">   
+                            </a> -->
+                            <a href="/Professionnel/Formulaire">   
                                 <div>
                                     <span class="icon">
                                         <img src="@/assets/professionnel/map_beauty-salon _1.svg">
@@ -59,7 +59,7 @@
                                 </div>
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="#">
                                 <span class="icon">
                                     <img src="@/assets/professionnel/bag-2.svg">
@@ -74,7 +74,7 @@
                                 </span>
                                 <span class="title">Settings</span>
                             </a>
-                        </li>
+                        </li> -->
                         <!-- Déconnexion -->
                         <li>
                             <a href="#" @click="handleLogout">

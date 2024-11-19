@@ -93,7 +93,7 @@ async function performLogin() {
     if (userRoles.includes("admin")) {
       router.push('/admin-dashboard');
     } else if (userRoles.includes("professionnel")) {
-      router.push('/Professionnel/Acceuil');
+      router.push('/Professionnel/Rendez-vous');
     } else if (userRoles.includes("client")) {
       router.push('/Acceuil/Client');
     } else {
@@ -107,6 +107,12 @@ async function performLogin() {
 </script>
 
 <style scoped>
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Empêche le défilement horizontal */
+}
 #image {
   width: 700px;;
 }
@@ -171,9 +177,39 @@ label {
 }
 
 @media screen and (max-width: 768px) {
+
+
   .principal{
     display: block;
+    
   }
+
+  #image{
+    width: 760px;
+  }
+
+  .form1{
+    width: 550px;
+    margin-left: 40px;
+    margin-bottom: 70px;
+  }
+
+  #input{
+    width: 500px;
+  }
+
+  #input2{
+    width: 500px;
+  }
+
+  #button{
+    width: 500px;
+  }
+
+  h3{
+    text-align: center;
+  }
+  
   
 }
 @media screen and (max-width: 420px) {
@@ -182,17 +218,17 @@ label {
   }
 
   #image{
-    width: 400px;
+    width: 420px;
   }
 
   #input{
-    width: 250px;
+    width: 320px;
     font-size: 21px;
+    
   }
 
   #input2{
-    width: 250px;
-    margin-left: 25px;
+    width: 320px;
     font-size: 21px;
   }
 
@@ -202,16 +238,26 @@ label {
   }
 
   #button{
-    width: 250px;
+    width: 320px;
     margin-top: 50px;
-    margin-left: 25px;
-    font-size: 21px;
+   font-size: 21px;
     margin-bottom: 30px;
   }
 
   #titre{
     text-align: center;
     margin-top: 30px;
+  }
+
+  .form1{
+    width: 380px;
+    margin-left: -45px;
+    margin-bottom: 70px;
+    
+  }
+
+  h3{
+    margin-left: -70px;
   }
 }
 </style>

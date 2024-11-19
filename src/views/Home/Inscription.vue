@@ -307,6 +307,12 @@ const register = async () => {
 
 
 <style scoped>
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Empêche le défilement horizontal */
+}
 .form-container {
   max-width: 600px;
   margin: auto;
@@ -346,6 +352,15 @@ const register = async () => {
   height: 50px;
   font-size: 21px;
   border-radius: 10px;
+}
+
+#btn1{
+  background-color: #ffcdb3;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  margin-left: 20px;
+  margin-bottom: -80px;
 }
 .opening-hours {
   display: grid;
@@ -463,7 +478,36 @@ main{
 @media screen and (max-width: 768px) {
   main{
     display: block;
+    margin-bottom: 80px;
   }
+
+  #proclient{
+  width: 768px;
+  margin-left: -50px;
+}
+
+.formclient{
+  margin-left: 30px;
+  width: 550px;
+}
+
+#input1{
+  width: 450px;
+}
+
+#input{
+  width: 470px;
+}
+
+.role-selection{
+  margin-left: -50px;
+  width: 550px;
+}
+
+.formpro{
+  margin-left: 40px;
+  width: 550px;
+}
 }
 
 @media screen and (max-width: 420px) {
@@ -472,16 +516,20 @@ main{
   }
 
   #proclient{
-    width: 350px;
+    width: 420px;
     margin-right: 10px;
-    margin-left: 0;
+    
     
   }
 
-  #input{
-    width: 300px;
-    font-size: 21px;
+  #input1{
+    width: 250px;
   }
+
+.role-selection{
+  margin-left: -30px;
+  width: 350px;
+}
 
 #input2{
   font-size: 21px;
@@ -496,15 +544,20 @@ main{
   font-size: 24px;
 }
 
-/* .formpro{
-  width: 22rem;
-  padding: 40px;
-  border-radius: 30px;
- 
+ .formpro{
+  width: 380px;
+ margin-left: -20px;
   
-} */
-#input1{
-   width: 250px;
+  border-radius: 30px;
+}
+
+.formclient{
+  width: 350px;
+  margin-left: 1px;
+  
+} 
+#input{
+   width: 300px;
   height: 50px;
   font-size: 21px;
   border-radius: 10px;

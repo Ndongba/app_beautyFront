@@ -215,7 +215,26 @@ async finalizeAppointment() {
     margin-top: 20px;
   }
 
+  @media (max-width: 768px) {
+  .hours-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+  
+}
+
+h2{
+ text-align: center;
+}
+  }
+
   @media (max-width: 480px) {
+
+  #date{
+    margin-left: 120px;
+  }
 .block{
   display: block;
 }

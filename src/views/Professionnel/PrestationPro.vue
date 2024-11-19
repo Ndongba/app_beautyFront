@@ -9,13 +9,10 @@
     <main class="main-content">
       <div class="recherche">
         <div>
-          <input type="search" id="search" placeholder="Rechercher">
+          <input type="search" id="search" placeholder="Rechercher" />
         </div>
         <div>
-          <input type="text" id="filter" placeholder="Filtrer">
-        </div>
-        <div>
-          <!-- <img src="@/assets/professionnel/filter.svg" alt="Filtre"> -->
+          <input type="text" id="filter" placeholder="Filtrer" />
         </div>
         <div>
           <button class="btn btn-primary" @click="goToForm">Ajouter</button>
@@ -35,10 +32,7 @@
           </div>
           <div class="ajoutcategorie" @click="addCategory">
             <div>
-              <!-- <img src="@/assets/professionnel/simple-line-icons_plus.svg" alt="Ajouter une catégorie"> -->
-            </div>
-            <div>
-              <p>Ajouter une catégorie </p> 
+              <p>Ajouter une catégorie</p>
             </div>
           </div>
         </div>
@@ -48,21 +42,31 @@
           <div class="prelist">
             <div v-for="categorie in categories" :key="categorie.id">
               <h1>{{ categorie.libelle }}</h1>
-              <div v-for="prestation in getPrestationsByCategory(categorie.id)" :key="prestation.id" class="prestation">
-               <div class="header">
+              <div v-if="getPrestationsByCategory(categorie.id).length === 0">
+                <p>Aucune prestation pour cette catégorie.</p>
+              </div>
+              <div
+                v-for="prestation in getPrestationsByCategory(categorie.id)"
+                :key="prestation.id"
+                class="prestation"
+              >
+                <div class="header">
                   <div>
                     <p>{{ prestation.libelle }}</p>
                   </div>
                   <div>
                     <p>{{ prestation.prix }} F</p>
                   </div>
-               </div>
-                <div class="boutons" style="gap: 20px;"> 
-                  <button class="btn btn-primary" @click="editPrestation(prestation)">Modifier</button>
-                  <button class="btn btn-danger" @click="deletePrestation(prestation.id)">Supprimer</button>
+                </div>
+                <div class="boutons" style="gap: 20px;">
+                  <button class="btn btn-primary" @click="editPrestation(prestation)">
+                    Modifier
+                  </button>
+                  <button class="btn btn-danger" @click="deletePrestation(prestation.id)">
+                    Supprimer
+                  </button>
                 </div>
               </div>
-          
             </div>
           </div>
         </div>
@@ -77,11 +81,10 @@ import DashboardProfessionnel from "../../components/professionnel/DashboardProf
 import { deletePrestation, getPrestations } from "@/services/Prestation";
 import { getCategories } from "@/services/Categorie";
 
-
 export default {
   name: "AccueilPro",
   components: {
-    DashboardProfessionnel
+    DashboardProfessionnel,
   },
   data() {
     return {
@@ -99,16 +102,23 @@ export default {
         this.categories = categoriesResponse.data;
 
         const prestationsResponse = await getPrestations();
-        this.prestations = prestationsResponse.data;
+        console.log("Prestations Response:", prestationsResponse);
+        this.prestations = Array.isArray(prestationsResponse.data)
+          ? prestationsResponse.data
+          : [];
       } catch (error) {
         console.error("Erreur lors de la récupération des données :", error);
       }
     },
     getPrestationCount(categorieId) {
-      return this.prestations.filter(p => p.categorie_id === categorieId).length;
+      return Array.isArray(this.prestations)
+        ? this.prestations.filter((p) => p.categorie_id === categorieId).length
+        : 0;
     },
     getPrestationsByCategory(categorieId) {
-      return this.prestations.filter(p => p.categorie_id === categorieId);
+      return Array.isArray(this.prestations)
+        ? this.prestations.filter((p) => p.categorie_id === categorieId)
+        : [];
     },
     goToForm() {
       this.$router.push("/Professionnel/Formulaire");
@@ -116,17 +126,16 @@ export default {
     addCategory() {
       console.log("Ajouter une catégorie");
     },
-
-    // Méthode pour éditer une prestation
     editPrestation(prestation) {
-      this.$router.push({ name: "FormulaireProupdate", params: { id: prestation.id } });
+      this.$router.push({
+        name: "FormulaireProupdate",
+        params: { id: prestation.id },
+      });
     },
-
-    // Méthode pour supprimer une prestation
     async deletePrestation(prestationId) {
       try {
         await deletePrestation(prestationId);
-        this.prestations = this.prestations.filter(p => p.id !== prestationId);
+        this.prestations = this.prestations.filter((p) => p.id !== prestationId);
       } catch (error) {
         console.error("Erreur lors de la suppression de la prestation :", error);
       }
@@ -142,7 +151,7 @@ export default {
 
 .sidebar {
   width: 350px;
-  background-color: #B4838D;
+  background-color: #b4838d;
   color: white;
   padding: 20px;
 }
@@ -158,7 +167,8 @@ export default {
   gap: 30px;
 }
 
-#search, #filter {
+#search,
+#filter {
   height: 70px;
   border-radius: 20px;
   font-size: 32px;
@@ -191,26 +201,26 @@ export default {
 .prestation {
   display: flex;
   flex-direction: column;
- 
   border: solid black 2px;
   width: 750px;
   padding: 30px;
   border-radius: 10px;
   margin-top: 20px;
 }
-.header{
+
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
+
 .boutons {
- display: flex;
- align-items: center;
- justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-p{
+p {
   font-size: 32px;
 }
 </style>
